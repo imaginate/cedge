@@ -11,10 +11,12 @@ class MyQueueNode {
 
 class MyQueue {
     /**
-     * The `MyQueue` constructor. You may provide an array of values which it
-     * pushes from index zero (i.e. index zero is the head) to the queue. Note
-     * that `MyQueue.prototype.pop` has a time complexity of O(n). Use `Deque`
-     * to get a time complexity of O(1) for `Deque.prototype.pop`.
+     * The `MyQueue` constructor (named `MyQueue` instead of `Queue` due to a
+     * name collision with the globally defined `Queue` class on LeetCode).
+     * You may provide an array of values which it pushes from index zero
+     * (i.e. index zero is the head) to the queue. Note that
+     * `MyQueue.prototype.pop` has a time complexity of O(n). Use `Deque` to
+     * get a time complexity of O(1) for `Deque.prototype.pop`.
      *
      * @param {*[]=} vals = `[]`
      * @constructor
