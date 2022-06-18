@@ -163,3 +163,5 @@ class AVL {
     preorder() {
     }
 }
+
+module.exports = AVL;

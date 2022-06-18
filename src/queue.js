@@ -134,3 +134,5 @@ class MyQueue {
         }
     }
 }
+
+module.exports = MyQueue;
