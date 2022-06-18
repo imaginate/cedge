@@ -1,3 +1,13 @@
+/**
+ * Cedge
+ * @file The unit tests for the `MinHeap` class.
+ * @version 1.0.0.alpha
+ * @see [Cedge](https://github.com/imaginate/cedge)
+ *
+ * @author Adam Smith <imagineadamsmith@gmail.com> (https://github.com/imaginate)
+ * @copyright 2022 Adam A Smith <imagineadamsmith@gmail.com> (https://github.com/imaginate)
+ */
+
 const MinHeap = require('../src/min-heap.js');
 const assert = require('assert');
 
