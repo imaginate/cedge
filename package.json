@@ -1,0 +1,21 @@
+{
+  "name": "cedge",
+  "version": "1.0.0-alpha",
+  "description": "A collection of JavaScript classes designed for competitive programming.",
+  "author": "Adam Smith <imagineadamsmith@gmail.com> (https://github.com/imaginate)",
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imaginate/cedge.git"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha -u tdd"
+  },
+  "bugs": {
+    "url": "https://github.com/imaginate/cedge/issues"
+  },
+  "homepage": "https://github.com/imaginate/cedge",
+  "devDependencies": {
+    "mocha": "7.x"
+  }
+}
