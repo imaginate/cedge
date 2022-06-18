@@ -16,8 +16,8 @@ suite('MinHeap(nums)', function() {
     test('this.getMin()', function() {
         assert(heap.getMin() === 1);
     });
-    test('this.size', function() {
-        assert(heap.size === Infinity);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === Infinity);
     });
     test('this.length', function() {
         assert(heap.length === 8);
@@ -28,8 +28,8 @@ suite('MinHeap(nums)', function() {
     test('this.pop()', function() {
         assert(heap.pop() === 2);
     });
-    test('this.size', function() {
-        assert(heap.size === Infinity);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === Infinity);
     });
     test('this.length', function() {
         assert(heap.length === 6);
@@ -55,21 +55,21 @@ suite('MinHeap(nums)', function() {
     test('this.getMin()', function() {
         assert(heap.getMin() === 3);
     });
-    test('this.size', function() {
-        assert(heap.size === Infinity);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === Infinity);
     });
     test('this.length', function() {
         assert(heap.length === 7);
     });
 });
 
-suite('MinHeap(nums, size)', function() {
+suite('MinHeap(nums, maxLength)', function() {
     const heap = new MinHeap([1,2,3,4,5,6,7,8], 5);
     test('this.getMin()', function() {
         assert(heap.getMin() === 4);
     });
-    test('this.size', function() {
-        assert(heap.size === 5);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === 5);
     });
     test('this.length', function() {
         assert(heap.length === 5);
@@ -80,8 +80,8 @@ suite('MinHeap(nums, size)', function() {
     test('this.pop()', function() {
         assert(heap.pop() === 5);
     });
-    test('this.size', function() {
-        assert(heap.size === 5);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === 5);
     });
     test('this.length', function() {
         assert(heap.length === 3);
@@ -92,8 +92,8 @@ suite('MinHeap(nums, size)', function() {
     test('this.push(1)', function() {
         heap.push(1);
     });
-    test('this.size', function() {
-        assert(heap.size === 5);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === 5);
     });
     test('this.length', function() {
         assert(heap.length === 4);
@@ -113,8 +113,8 @@ suite('MinHeap(nums, size)', function() {
     test('this.push(1)', function() {
         heap.push(1);
     });
-    test('this.size', function() {
-        assert(heap.size === 5);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === 5);
     });
     test('this.length', function() {
         assert(heap.length === 5);
@@ -126,8 +126,8 @@ suite('MinHeap(nums, size)', function() {
 
 suite('MinHeap()', function() {
     const heap = new MinHeap();
-    test('this.size', function() {
-        assert(heap.size === Infinity);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === Infinity);
     });
     test('this.length', function() {
         assert(heap.length === 0);
@@ -138,8 +138,8 @@ suite('MinHeap()', function() {
     test('this.push(1)', function() {
         heap.push(1);
     });
-    test('this.size', function() {
-        assert(heap.size === Infinity);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === Infinity);
     });
     test('this.length', function() {
         assert(heap.length === 1);
@@ -150,8 +150,8 @@ suite('MinHeap()', function() {
     test('this.pop()', function() {
         assert(heap.pop() === 1);
     });
-    test('this.size', function() {
-        assert(heap.size === Infinity);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === Infinity);
     });
     test('this.length', function() {
         assert(heap.length === 0);
@@ -174,8 +174,8 @@ suite('MinHeap()', function() {
     test('this.push(5)', function() {
         heap.push(5);
     });
-    test('this.size', function() {
-        assert(heap.size === Infinity);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === Infinity);
     });
     test('this.length', function() {
         assert(heap.length === 5);
@@ -185,10 +185,10 @@ suite('MinHeap()', function() {
     });
 });
 
-suite('MinHeap(size)', function() {
+suite('MinHeap(maxLength)', function() {
     const heap = new MinHeap(3);
-    test('this.size', function() {
-        assert(heap.size === 3);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === 3);
     });
     test('this.length', function() {
         assert(heap.length === 0);
@@ -199,8 +199,8 @@ suite('MinHeap(size)', function() {
     test('this.push(1)', function() {
         heap.push(1);
     });
-    test('this.size', function() {
-        assert(heap.size === 3);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === 3);
     });
     test('this.length', function() {
         assert(heap.length === 1);
@@ -211,8 +211,8 @@ suite('MinHeap(size)', function() {
     test('this.pop()', function() {
         assert(heap.pop() === 1);
     });
-    test('this.size', function() {
-        assert(heap.size === 3);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === 3);
     });
     test('this.length', function() {
         assert(heap.length === 0);
@@ -235,8 +235,8 @@ suite('MinHeap(size)', function() {
     test('this.push(5)', function() {
         heap.push(5);
     });
-    test('this.size', function() {
-        assert(heap.size === 3);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === 3);
     });
     test('this.length', function() {
         assert(heap.length === 3);
@@ -247,8 +247,8 @@ suite('MinHeap(size)', function() {
     test('this.push(2)', function() {
         heap.push(2);
     });
-    test('this.size', function() {
-        assert(heap.size === 3);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === 3);
     });
     test('this.length', function() {
         assert(heap.length === 3);
@@ -259,8 +259,8 @@ suite('MinHeap(size)', function() {
     test('this.push(4)', function() {
         heap.push(4);
     });
-    test('this.size', function() {
-        assert(heap.size === 3);
+    test('this.maxLength', function() {
+        assert(heap.maxLength === 3);
     });
     test('this.length', function() {
         assert(heap.length === 3);

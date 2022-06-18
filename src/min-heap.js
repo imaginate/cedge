@@ -16,34 +16,36 @@ class MinHeap {
      * The `MinHeap` constructor. You may provide an unsorted array of numbers
      * which it clones and then heapifies in linear time (faster than
      * individually pushing each number into an empty heap which takes
-     * O(n*log(n)) time). If the `size` parameter is defined the length of the
-     * heap is limited to `size`. If limited the heap will only keep the
-     * greatest `size` count of the numbers provided and will only add new
-     * numbers that are greater than the minimum value. Note that limiting the
-     * heap increases the time complexity to O((n-size)*log(n)).
+     * O(n*log(n)) time). If the `maxLength` parameter is defined the length
+     * of the heap is limited to `maxLength`. If limited the heap will only
+     * keep the greatest `maxLength` count of the numbers provided and will
+     * only add new numbers that are greater than the minimum value. Note that
+     * limiting the heap increases the constructor's time complexity to
+     * O((n-maxLength)*log(n)).
      *
      * @param {number[]=} nums = `[]`
-     *     If `nums` is type `number` the `size` parameter is set to `nums`
-     *     value, and `nums` is set to `[]`.
-     * @param {number=} size = `Infinity`
-     *     Must be greater than or equal to zero.
+     *     If `nums` is type `number` the `maxLength` parameter is set to
+     *     `nums` value, and `nums` is set to `[]`.
+     * @param {number=} maxLength = `Infinity`
+     *     Must be greater than or equal to `1`. If it is not then `maxLength`
+     *     is automatically set to `1`.
      * @constructor
      */
-    constructor(nums = [], size = Infinity) {
+    constructor(nums = [], maxLength = Infinity) {
         if (typeof nums === 'number') {
-            size = nums;
+            maxLength = nums;
             nums = [];
         }
-        if (size < 0) {
-            size = 0;
+        if (maxLength < 1) {
+            maxLength = 1;
         }
-        this.size = size;
+        this.maxLength = maxLength;
         this.heap = nums.slice();
         this.length = nums.length;
         for (let i = Math.floor((nums.length - 2) / 2); i >= 0; --i) {
-    	    this.siftDown(i);
+            this.siftDown(i);
         }
-        while (this.length > size) {
+        while (this.length > maxLength) {
             this.pop();
         }
     }
@@ -79,13 +81,13 @@ class MinHeap {
      * @return {void}
      */
     push(num) {
-        if (this.length < this.size) {
-    	    ++this.length;
-    	    this.heap.push(num);
-    	    this.siftUp(this.length - 1);
+        if (this.length < this.maxLength) {
+            ++this.length;
+            this.heap.push(num);
+            this.siftUp(this.length - 1);
         } else if (num > this.heap[0]) {
-    	    this.heap[0] = num;
-    	    this.siftDown(0);
+            this.heap[0] = num;
+            this.siftDown(0);
         }
     }
     
@@ -98,15 +100,15 @@ class MinHeap {
         const heap = this.heap;
         let k = i * 2 + 1;
         while (k < length) {
-    	if (k + 1 < length && heap[k + 1] < heap[k]) {
-    	    ++k;
-    	}
-    	if (heap[i] <= heap[k]) {
-    	    return;
-    	}
-    	[ heap[i], heap[k] ] = [ heap[k], heap[i] ];
-    	i = k;
-    	k = i * 2 + 1;
+            if (k + 1 < length && heap[k + 1] < heap[k]) {
+                ++k;
+            }
+            if (heap[i] <= heap[k]) {
+                return;
+            }
+            [ heap[i], heap[k] ] = [ heap[k], heap[i] ];
+            i = k;
+            k = i * 2 + 1;
         }
     }
     
@@ -118,9 +120,9 @@ class MinHeap {
         const heap = this.heap;
         let p = Math.floor((i - 1) / 2);
         while (i > 0 && heap[i] < heap[p]) {
-    	    [ heap[i], heap[p] ] = [ heap[p], heap[i] ];
-    	    i = p;
-    	    p = Math.floor((i - 1) / 2);
+            [ heap[i], heap[p] ] = [ heap[p], heap[i] ];
+            i = p;
+            p = Math.floor((i - 1) / 2);
         }
     }
 }
