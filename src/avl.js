@@ -36,8 +36,8 @@ class AVL {
      * comparator method.
      *
      * @param {*[]=} vals = `[]`
-     *     If `vals` is type `function` the `compare` parameter is set to
-     *     `vals` value, and `vals` is set to `[]`.
+     *     If `vals` is type `function` or `string` the `compare` parameter is
+     *     set to `vals`, and `vals` is set to `[]`.
      * @param {((!function(*, *): number)|string)=} compare = `"number"`
      *     The method used to determine the order of the values. Must return
      *     a number less than `0` to sort `a` before `b`, equal to `0` to
