@@ -13,6 +13,7 @@
 
 class MyQueueNode {
     /**
+     * @private
      * @param {*} val
      * @constructor
      */
@@ -24,114 +25,167 @@ class MyQueueNode {
 
 class MyQueue {
     /**
-     * The `MyQueue` constructor (named `MyQueue` instead of `Queue` due to a
-     * name collision with the globally defined `Queue` class on LeetCode).
-     * You may provide an array of values which it pushes from index zero
-     * (i.e. index zero is the head) to the queue. Note that
-     * `MyQueue.prototype.pop` has a time complexity of O(n). Use `Deque` to
-     * get a time complexity of O(1) for `Deque.prototype.pop`.
+     * The `Queue` constructor (named `MyQueue` here so that when this file is
+     * copied for competitive programming on LeetCode a name collision with
+     * the LeetCode's `Queue` class is avoided). You may provide an array of
+     * values which it pushes from index zero (i.e. index zero is the head) to
+     * the queue. Note that `Queue.prototype.pop` has a time complexity of
+     * O(n). Use `Deque` to get a time complexity of O(1) for `queue.pop`.
      *
-     * @param {*[]=} vals = `[]`
+     * @public
+     * @param {!Array<*>=} vals = `[]`
      * @constructor
      */
     constructor(vals = []) {
-        this.head = null;
-        this.tail = null;
-        this.length = 0;
+
+        /**
+         * This is the internal node for the head of the queue. Do **not**
+         * overwrite this property. It is meant for internal use only.
+         *
+         * @private
+         * @const {?MyQueueNode}
+         */
+        this._head = null;
+
+        /**
+         * This is the internal node for the tail of the queue. Do **not**
+         * overwrite this property. It is meant for internal use only.
+         *
+         * @private
+         * @const {?MyQueueNode}
+         */
+        this._tail = null;
+
+        /**
+         * This is the internal node for the length of the queue. Do **not**
+         * overwrite this property. It is meant for internal use only.
+         *
+         * @private
+         * @const {number}
+         */
+        this._length = 0;
+
         for (let i = 0; i < vals.length; ++i) {
             this.push(vals[i]);
         }
     }
     
     /**
+     * This method gets the value for the head of the `Queue` instance.
+     *
+     * @public
+     * @export
      * @return {*}
      */
     first() {
-        return this.length
-            ? this.head.val
+        return this._length
+            ? this._head.val
             : undefined;
     }
 
     /**
+     * This method gets the value for the tail of the `Queue` instance.
+     *
+     * @public
+     * @export
      * @return {*}
      */
     last() {
-        return this.length
-            ? this.tail.val
+        return this._length
+            ? this._tail.val
             : undefined;
     }
 
     /**
+     * This method gets the current length of the `Queue` instance.
+     *
+     * @public
+     * @export
+     * @return {number}
+     */
+    length() {
+        return this._length;
+    }
+
+    /**
+     * @public
+     * @export
      * @return {*}
      */
     pop() {
-        if (!this.length) {
+        if (!this._length) {
             return undefined;
         }
-        const val = this.tail.val;
-        --this.length;
-        if (this.head.next) {
-            const node = this.head;
+        const val = this._tail.val;
+        if (this._head.next) {
+            const node = this._head;
             while (node.next.next) {
                 node = node.next;
             }
             node.next = null;
-            this.tail = node;
+            this._tail = node;
         } else {
-            this.head = null;
-            this.tail = null;
+            this._head = null;
+            this._tail = null;
         }
+        --this._length;
         return val;
     }
 
     /**
+     * @public
+     * @export
      * @param {*} val
      * @return {void}
      */
     push(val) {
-        ++this.length;
         const node = new MyQueueNode(val);
-        if (this.tail) {
-            this.tail.next = node;
-            this.tail = node;
+        if (this._tail) {
+            this._tail.next = node;
+            this._tail = node;
         } else {
-            this.head = node;
-            this.tail = node;
+            this._head = node;
+            this._tail = node;
         }
+        ++this._length;
     }
     
     /**
+     * @public
+     * @export
      * @return {*}
      */
     shift() {
-        if (!this.length) {
+        if (!this._length) {
             return undefined;
         }
-        const val = this.head.val;
-        --this.length;
-        if (this.head.next) {
-            this.head = this.head.next;
+        const val = this._head.val;
+        if (this._head.next) {
+            this._head = this._head.next;
         } else {
-            this.head = null;
-            this.tail = null;
+            this._head = null;
+            this._tail = null;
         }
+        --this._length;
         return val;
     }    
 
     /**
+     * @public
+     * @export
      * @param {*} val
      * @return {void}
      */
     unshift(val) {
-        ++this.length;
         const node = new MyQueueNode(val);
-        if (this.head) {
-            node.next = this.head;
-            this.head = node;
+        if (this._head) {
+            node.next = this._head;
+            this._head = node;
         } else {
-            this.head = node;
-            this.tail = node;
+            this._head = node;
+            this._tail = node;
         }
+        ++this._length;
     }
 }
 
