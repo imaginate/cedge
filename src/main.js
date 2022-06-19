@@ -36,13 +36,7 @@ cedge.Deque = require('./deque.js');
  * @public
  * @export
  */
-cedge.MaxHeap = require('./max-heap.js');
-
-/**
- * @public
- * @export
- */
-cedge.MinHeap = require('./min-heap.js');
+cedge.Heap = require('./heap.js');
 
 /**
  * @public
