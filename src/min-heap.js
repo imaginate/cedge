@@ -13,36 +13,79 @@
 
 class MinHeap {
     /**
-     * The `MinHeap` constructor. You may provide an unsorted array of numbers
+     * The `MinHeap` constructor. You may provide an unsorted array of values
      * which it clones and then heapifies in linear time (faster than
-     * individually pushing each number into an empty heap which takes
-     * O(n*log(n)) time). If the `maxLength` parameter is defined the length
-     * of the heap is limited to `maxLength`. If limited the heap will only
-     * keep the greatest `maxLength` count of the numbers provided and will
-     * only add new numbers that are greater than the minimum value. Note that
-     * limiting the heap increases the constructor's time complexity to
-     * O((n-maxLength)*log(n)).
+     * individually pushing each value into an empty heap which takes
+     * O(n*log(n)) time). You may provide a custom comparator method. You may
+     * provide a limit for the length of `MinHeap`. If a limit is provided the
+     * heap will only keep the greatest `maxLength` count of the values
+     * provided and will only add new values that are greater than the minimum
+     * value. Note that limiting the heap increases the constructor's time
+     * complexity to O((n-maxLength)*log(n)).
      *
      * @public
-     * @param {number[]=} nums = `[]`
-     *     If `nums` is type `number` the `maxLength` parameter is set to
-     *     `nums` value, and `nums` is set to `[]`.
+     * @param {!Array<*>=} vals = `[]`
+     *     If `vals` is type `function` or `string` the `compare` parameter is
+     *     set to `vals`, and `vals` is set to `[]`. If `vals` is type
+     *     `number` the `maxLength` parameter is set to `vals`, and `vals` is
+     *     set to `[]`.
+     * @param {((!function(*, *): number)|string)=} compare = `"number"`
+     *     If `compare` is type `number` the `maxLength` parameter is set to
+     *     `compare`, and `compare` is set to `"number"`. `compare` is the
+     *     method used to determine the order of the values. It must return a
+     *     number less than or equal to `0` to sort `a` before `b` and a
+     *     number greater than `0` to sort `b` before `a`. If `maxLength` is
+     *     set `compare` decides if a value can stay or must go (the `top`
+     *     value(s) is always cut). The default comparators are `"number"`
+     *     which is `a - b` and `"string"` which is `a.localeCompare(b)`.
      * @param {number=} maxLength = `Infinity`
+     *     `maxLength` is the maximum values the heap can hold. It will only
+     *     keep the lowest values within the heap (i.e. the `top` is cut).
      * @constructor
      */
-    constructor(nums = [], maxLength = Infinity) {
-        if (typeof nums === 'number') {
-            maxLength = nums;
-            nums = [];
+    constructor(vals = [], compare = 'number', maxLength = Infinity) {
+        switch (typeof vals) {
+            case 'function':
+            case 'string':
+                if (typeof compare === 'number') {
+                    maxLength = compare;
+                }
+                compare = vals;
+                vals = [];
+                break;
+            case 'number':
+                maxLength = vals;
+                vals = [];
+                break;
+            case 'object':
+                if (typeof compare === 'number') {
+                    maxLength = compare;
+                    compare = 'number';
+                }
+        }
+        if (typeof compare === 'string') {
+            compare = compare === 'string'
+                ? defaultStringCompare
+                : defaultNumberCompare;
         }
         /**
          * This is the internal containing array for the heap. Do **not**
          * overwrite this property. It is meant for internal use only.
          *
          * @private
-         * @const {!Array<number>}
+         * @const {!Array<*>}
          */
-        this._heap = nums.slice();
+        this._heap = vals.slice();
+        /**
+         * This is the comparator used by the heap instance. It should be
+         * treated as read-only. If you overwrite this property you will
+         * change the results of future comparisons.
+         *
+         * @public
+         * @export
+         * @const {!function(*, *): number}
+         */
+        this.compare = compare;
         /**
          * This is the current length of the `MinHeap` instance. This property
          * is read-only. If overwritten it will not cause any side-effects
@@ -53,7 +96,7 @@ class MinHeap {
          * @export
          * @type {number}
          */
-        this.length = nums.length;
+        this.length = vals.length;
         /**
          * This is the maximum length of the `MinHeap` instance. If
          * overwritten it will change the activity of the `MinHeap` instance.
@@ -70,8 +113,8 @@ class MinHeap {
          */
         this.maxLength = maxLength;
 
-        for (let i = Math.floor((nums.length - 2) / 2); i >= 0; --i) {
-            siftDown(this._heap, i);
+        for (let i = Math.floor((vals.length - 2) / 2); i >= 0; --i) {
+            siftDown(this._heap, i, compare);
         }
         while (this._heap.length > Math.max(0, maxLength)) {
             this.pop();
@@ -81,29 +124,29 @@ class MinHeap {
     /**
      * @public
      * @export
-     * @return {number}
+     * @return {*}
      */
     min() {
         return this._heap.length
             ? this._heap[0]
-            : NaN;
+            : undefined;
     }
 
     /**
      * @public
      * @export
-     * @return {number}
+     * @return {*}
      */
     pop() {
         if (!this._heap.length) {
-            return NaN;
+            return undefined;
         }
         const heap = this._heap;
         const last = heap.length - 1;
         const min = heap[0];
         [ heap[0], heap[last] ] = [ heap[last], heap[0] ];
         heap.pop();
-        siftDown(heap, 0);
+        siftDown(heap, 0, this.compare);
         this.length = heap.length;
         return min;
     }
@@ -111,17 +154,18 @@ class MinHeap {
     /**
      * @public
      * @export
-     * @param {number} num
+     * @param {*} val
      * @return {void}
      */
-    push(num) {
+    push(val) {
         const heap = this._heap;
+        const compare = this.compare;
         if (heap.length < this.maxLength) {
-            heap.push(num);
-            siftUp(heap, heap.length - 1);
-        } else if (heap.length && num > heap[0]) {
-            heap[0] = num;
-            siftDown(heap, 0);
+            heap.push(val);
+            siftUp(heap, heap.length - 1, compare);
+        } else if (heap.length && compare(val, heap[0]) > 0) {
+            heap[0] = val;
+            siftDown(heap, 0, compare);
         }
         this.length = heap.length;
     }
@@ -129,28 +173,47 @@ class MinHeap {
     /**
      * @public
      * @export
-     * @return {number}
+     * @return {*}
      */
     top() {
         return this._heap.length
             ? this._heap[0]
-            : NaN;
+            : undefined;
     }
 }
 
 /**
+ * @param {number} a
+ * @param {number} b
+ * @return {number}
+ */
+function defaultNumberCompare(a, b) {
+    return a - b;
+}
+
+/**
+ * @param {string} a
+ * @param {string} b
+ * @return {number}
+ */
+function defaultStringCompare(a, b) {
+    return a.localeCompare(b);
+}
+
+/**
  * @private
- * @param {!Array<number>} heap
+ * @param {!Array<*>} heap
  * @param {number} i
+ * @param {!function(*, *): number} compare
  * @return {void}
  */
-function siftDown(heap, i) {
+function siftDown(heap, i, compare) {
     let k = i * 2 + 1;
     while (k < heap.length) {
-        if (k + 1 < heap.length && heap[k + 1] < heap[k]) {
+        if (k + 1 < heap.length && compare(heap[k + 1], heap[k]) < 0) {
             ++k;
         }
-        if (heap[i] <= heap[k]) {
+        if (compare(heap[i], heap[k]) <= 0) {
             return;
         }
         [ heap[i], heap[k] ] = [ heap[k], heap[i] ];
@@ -161,13 +224,14 @@ function siftDown(heap, i) {
 
 /**
  * @private
- * @param {!Array<number>} heap
+ * @param {!Array<*>} heap
  * @param {number} i
+ * @param {!function(*, *): number} compare
  * @return {void}
  */
-function siftUp(heap, i) {
+function siftUp(heap, i, compare) {
     let p = Math.floor((i - 1) / 2);
-    while (i > 0 && heap[i] < heap[p]) {
+    while (i > 0 && compare(heap[i], heap[p]) < 0) {
         [ heap[i], heap[p] ] = [ heap[p], heap[i] ];
         i = p;
         p = Math.floor((i - 1) / 2);

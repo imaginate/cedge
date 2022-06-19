@@ -133,7 +133,7 @@ suite('MinHeap()', function() {
         assert(heap.length === 0);
     });
     test('this.min()', function() {
-        assert(isNaN(heap.min()));
+        assert(heap.min() === undefined);
     });
     test('this.push(1)', function() {
         heap.push(1);
@@ -157,7 +157,7 @@ suite('MinHeap()', function() {
         assert(heap.length === 0);
     });
     test('this.min()', function() {
-        assert(isNaN(heap.min()));
+        assert(heap.min() === undefined);
     });
     test('this.push(1)', function() {
         heap.push(1);
@@ -194,7 +194,7 @@ suite('MinHeap(maxLength)', function() {
         assert(heap.length === 0);
     });
     test('this.min()', function() {
-        assert(isNaN(heap.min()));
+        assert(heap.min() === undefined);
     });
     test('this.push(1)', function() {
         heap.push(1);
@@ -218,7 +218,7 @@ suite('MinHeap(maxLength)', function() {
         assert(heap.length === 0);
     });
     test('this.min()', function() {
-        assert(isNaN(heap.min()));
+        assert(heap.min() === undefined);
     });
     test('this.push(1)', function() {
         heap.push(1);
