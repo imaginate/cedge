@@ -23,12 +23,11 @@ class MaxHeap {
      * limiting the heap increases the constructor's time complexity to
      * O((n-maxLength)*log(n)).
      *
+     * @public
      * @param {number[]=} nums = `[]`
      *     If `nums` is type `number` the `maxLength` parameter is set to
      *     `nums` value, and `nums` is set to `[]`.
      * @param {number=} maxLength = `Infinity`
-     *     Must be greater than or equal to `1`. If it is not then `maxLength`
-     *     is automatically set to `1`.
      * @constructor
      */
     constructor(nums = [], maxLength = Infinity) {
@@ -36,94 +35,131 @@ class MaxHeap {
             maxLength = nums;
             nums = [];
         }
-        if (maxLength < 1) {
-            maxLength = 1;
-        }
-        this.maxLength = maxLength;
-        this.heap = nums.slice();
+        /**
+         * This is the internal containing array for the heap. Do **not**
+         * overwrite this property. It is meant for internal use only.
+         *
+         * @private
+         * @const {!Array<number>}
+         */
+        this._heap = nums.slice();
+        /**
+         * This is the current length of the `MaxHeap` instance. This property
+         * is read-only. If overwritten it will not cause any side-effects
+         * except that `heap.length` reads will report the incorrect value
+         * until the next `heap.pop` or `heap.push` call updates it.
+         *
+         * @public
+         * @export
+         * @type {number}
+         */
         this.length = nums.length;
+        /**
+         * This is the maximum length of the `MaxHeap` instance. If
+         * overwritten it will change the activity of the `MaxHeap` instance.
+         * If the new `heap.maxLength` value is greater than the original
+         * value it will enable the heap to contain more values. If the new
+         * `heap.maxLength` value is less than the original value the heap
+         * keeps its existing length, prevents any new values from being added
+         * to it, and decreases its length after every `heap.pop` call until
+         * `heap.length` is equal to `heap.maxLength`.
+         *
+         * @public
+         * @export
+         * @type {number}
+         */
+        this.maxLength = maxLength;
+
         for (let i = Math.floor((nums.length - 2) / 2); i >= 0; --i) {
-            this.siftDown(i);
+            siftDown(this._heap, i);
         }
-        while (this.length > maxLength) {
+        while (this._heap.length > Math.max(0, maxLength)) {
             this.pop();
         }
     }
     
     /**
+     * @public
+     * @export
      * @return {number}
      */
-    getMax() {
-        return this.length
-            ? this.heap[0]
+    max() {
+        return this._heap.length
+            ? this._heap[0]
             : NaN;
     }
     
     /**
+     * @public
+     * @export
      * @return {number}
      */
     pop() {
-        if (!this.length) {
+        if (!this._heap.length) {
             return NaN;
         }
-        const heap = this.heap;
-        const last = this.length - 1;
+        const heap = this._heap;
+        const last = heap.length - 1;
         const max = heap[0];
-        --this.length;
         [ heap[0], heap[last] ] = [ heap[last], heap[0] ];
         heap.pop();
-        this.siftDown(0);
+        siftDown(heap, 0);
+        this.length = heap.length;
         return max;
     }
     
     /**
+     * @public
+     * @export
      * @param {number} num
      * @return {void}
      */
     push(num) {
-        if (this.length < this.maxLength) {
-            ++this.length;
-            this.heap.push(num);
-            this.siftUp(this.length - 1);
-        } else if (num < this.heap[0]) {
-            this.heap[0] = num;
-            this.siftDown(0);
+        const heap = this._heap;
+        if (heap.length < this.maxLength) {
+            heap.push(num);
+            siftUp(heap, heap.length - 1);
+        } else if (heap.length && num < heap[0]) {
+            heap[0] = num;
+            siftDown(heap, 0);
         }
+        this.length = heap.length;
     }
-    
-    /**
-     * @param {number} i
-     * @return {void}
-     */
-    siftDown(i) {
-        const length = this.length;
-        const heap = this.heap;
-        let k = i * 2 + 1;
-        while (k < length) {
-            if (k + 1 < length && heap[k + 1] > heap[k]) {
-                ++k;
-            }
-            if (heap[i] >= heap[k]) {
-                return;
-            }
-            [ heap[i], heap[k] ] = [ heap[k], heap[i] ];
-            i = k;
-            k = i * 2 + 1;
+}
+
+/**
+ * @private
+ * @param {!Array<number>} heap
+ * @param {number} i
+ * @return {void}
+ */
+function siftDown(heap, i) {
+    let k = i * 2 + 1;
+    while (k < heap.length) {
+        if (k + 1 < heap.length && heap[k + 1] > heap[k]) {
+            ++k;
         }
+        if (heap[i] >= heap[k]) {
+            return;
+        }
+        [ heap[i], heap[k] ] = [ heap[k], heap[i] ];
+        i = k;
+        k = i * 2 + 1;
     }
-    
-    /**
-     * @param {number} i
-     * @return {void}
-     */
-    siftUp(i) {
-        const heap = this.heap;
-        let p = Math.floor((i - 1) / 2);
-        while (i > 0 && heap[i] > heap[p]) {
-            [ heap[i], heap[p] ] = [ heap[p], heap[i] ];
-            i = p;
-            p = Math.floor((i - 1) / 2);
-        }
+}
+
+/**
+ * @private
+ * @param {!Array<number>} heap
+ * @param {number} i
+ * @return {void}
+ */
+function siftUp(heap, i) {
+    let p = Math.floor((i - 1) / 2);
+    while (i > 0 && heap[i] > heap[p]) {
+        [ heap[i], heap[p] ] = [ heap[p], heap[i] ];
+        i = p;
+        p = Math.floor((i - 1) / 2);
     }
 }
 
