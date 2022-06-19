@@ -13,6 +13,7 @@
 
 class DequeNode {
     /**
+     * @private
      * @param {*} val
      * @constructor
      */
@@ -32,12 +33,14 @@ class Deque {
      * will purge the tail once the length of the deque exceeds the
      * `maxLength`.
      *
-     * @param {*[]=} vals = `[]`
+     * @public
+     * @param {!Array<*>=} vals = `[]`
      *     If `vals` is type `number` the `maxLength` parameter is set to
-     *     `vals` value, and `vals` is set to `[]`.
+     *     `vals`, and `vals` is set to `[]`.
      * @param {number=} maxLength = `Infinity`
-     *     Must be greater than or equal to `1`. If it is not then `maxLength`
-     *     is automatically set to `1`.
+     *     `maxLength` is the maximum values the deque can hold. It will cut
+     *     the tail before adding a new value when the maximum length is
+     *     reached.
      * @constructor
      */
     constructor(vals = [], maxLength = Infinity) {
@@ -45,112 +48,186 @@ class Deque {
             maxLength = vals;
             vals = [];
         }
-        if (maxLength < 1) {
-            maxLength = 1;
-        }
-        this.head = null;
-        this.tail = null;
-        this.maxLength = maxLength;
-        this.length = 0;
+
+        /**
+         * This is the internal node for the head of the queue. Do **not**
+         * overwrite this property. It is meant for internal use only.
+         *
+         * @private
+         * @const {?DequeNode}
+         */
+        this._head = null;
+
+        /**
+         * This is the internal node for the tail of the queue. Do **not**
+         * overwrite this property. It is meant for internal use only.
+         *
+         * @private
+         * @const {?DequeNode}
+         */
+        this._tail = null;
+
+        /**
+         * This is the internal value for the length of the queue. Do **not**
+         * overwrite this property. It is meant for internal use only.
+         *
+         * @private
+         * @const {?DequeNode}
+         */
+        this._length = 0;
+
+        /**
+         * This is the internal maximum length value. Do **not** overwrite
+         * this property. It is meant for internal use only.
+         *
+         * @private
+         * @const {number}
+         */
+        this._maxLength = maxLength;
+
         for (let i = 0; i < vals.length; ++i) {
             this.push(vals[i]);
         }
     }
     
     /**
+     * This method gets the value for the head of the `Deque` instance.
+     *
+     * @public
+     * @export
      * @return {*}
      */
     first() {
-        return this.length
-            ? this.head.val
+        return this._length
+            ? this._head.val
             : undefined;
     }
         
     /**
+     * This method gets the value for the tail of the `Deque` instance.
+     *
+     * @public
+     * @export
      * @return {*}
      */
     last() {
-        return this.length
-            ? this.tail.val
+        return this._length
+            ? this._tail.val
             : undefined;
     }
 
     /**
+     * This method gets the current length for the `Deque` instance.
+     *
+     * @public
+     * @export
+     * @return {number}
+     */
+    length() {
+        return this._length;
+    }
+
+    /**
+     * This method gets the maximum length for the `Deque` instance.
+     *
+     * @public
+     * @export
+     * @return {number}
+     */
+    maxLength() {
+        return this._maxLength;
+    }
+
+    /**
+     * @public
+     * @export
      * @return {*}
      */
     pop() {
-        if (!this.length) {
+        if (!this._length) {
             return undefined;
         }
-        const val = this.tail.val;
-        --this.length;
-        if (this.tail.prev) {
-            this.tail = this.tail.prev;
-            this.tail.next = null;
+        const val = this._tail.val;
+        if (this._tail.prev) {
+            this._tail = this._tail.prev;
+            this._tail.next = null;
         } else {
-            this.head = null;
-            this.tail = null;
+            this._head = null;
+            this._tail = null;
         }
+        --this._length;
         return val;
     }
     
     /**
+     * @public
+     * @export
      * @param {*} val
      * @return {void}
      */
     push(val) {
-        if (this.length === this.maxLength) {
+        if (this._maxLength < 1) {
+            return;
+        }
+        if (this._length === this._maxLength) {
             this.pop();
         }
-        ++this.length;
         const node = new DequeNode(val);
-        if (this.tail) {
-            this.tail.next = node;
-            node.prev = this.tail;
-            this.tail = node;
+        if (this._tail) {
+            this._tail.next = node;
+            node.prev = this._tail;
+            this._tail = node;
         } else {
-            this.head = node;
-            this.tail = node;
+            this._head = node;
+            this._tail = node;
         }
+        ++this._length;
     }
     
     /**
+     * @public
+     * @export
      * @return {*}
      */
     shift() {
-        if (!this.length) {
+        if (!this._length) {
             return undefined;
         }
-        const val = this.head.val;
-        --this.length;
-        if (this.head.next) {
-            this.head = this.head.next;
-            this.head.prev = null;
+        const val = this._head.val;
+        if (this._head.next) {
+            this._head = this._head.next;
+            this._head.prev = null;
         } else {
-            this.head = null;
-            this.tail = null;
+            this._head = null;
+            this._tail = null;
         }
+        --this._length;
         return val;
     }    
 
     /**
+     * @public
+     * @export
      * @param {*} val
      * @return {void}
      */
     unshift(val) {
-        if (this.length === this.maxLength) {
+        if (this._maxLength < 1) {
+            return;
+        }
+        if (this._length === this._maxLength) {
             this.pop();
         }
-        ++this.length;
         const node = new DequeNode(val);
-        if (this.head) {
-            this.head.prev = node;
-            node.next = this.head;
-            this.head = node;
+        if (this._head) {
+            this._head.prev = node;
+            node.next = this._head;
+            this._head = node;
         } else {
-            this.head = node;
-            this.tail = node;
+            this._head = node;
+            this._tail = node;
         }
+        ++this._length;
     }
 }
 

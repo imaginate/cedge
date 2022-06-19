@@ -57,7 +57,7 @@ class MyQueue {
         this._tail = null;
 
         /**
-         * This is the internal node for the length of the queue. Do **not**
+         * This is the internal value for the length of the queue. Do **not**
          * overwrite this property. It is meant for internal use only.
          *
          * @private
