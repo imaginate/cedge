@@ -88,7 +88,7 @@ class MaxHeap {
             ? this._heap[0]
             : NaN;
     }
-    
+
     /**
      * @public
      * @export
@@ -107,7 +107,7 @@ class MaxHeap {
         this.length = heap.length;
         return max;
     }
-    
+
     /**
      * @public
      * @export
@@ -124,6 +124,17 @@ class MaxHeap {
             siftDown(heap, 0);
         }
         this.length = heap.length;
+    }
+
+    /**
+     * @public
+     * @export
+     * @return {number}
+     */
+    top() {
+        return this._heap.length
+            ? this._heap[0]
+            : NaN;
     }
 }
 
