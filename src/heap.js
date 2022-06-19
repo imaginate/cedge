@@ -102,32 +102,13 @@ class Heap {
         this.compare = compare;
 
         /**
-         * This is the current length of the `Heap` instance. This property
-         * is read-only. If overwritten it will not cause any side-effects
-         * except that `heap.length` reads will report the incorrect value
-         * until the next `heap.pop` or `heap.push` call updates it.
+         * This is the internal maximum length value. Do **not** overwrite
+         * this property. It is meant for internal use only.
          *
-         * @public
-         * @export
-         * @type {number}
-         */
-        this.length = vals.length;
-
-        /**
-         * This is the maximum length of the `Heap` instance. It should be
-         * treated as read-only. If overwritten it will change the activity of
-         * the `Heap` instance. If the new `heap.maxLength` value is greater
-         * than the original value it will enable the heap to contain more
-         * values. If the new `heap.maxLength` value is less than the original
-         * value the heap keeps its existing length, prevents any new values
-         * from being added to it, and decreases its length after every
-         * `heap.pop` call until `heap.length` is equal to `heap.maxLength`.
-         *
-         * @public
-         * @export
+         * @private
          * @const {number}
          */
-        this.maxLength = maxLength;
+        this._maxLength = maxLength;
 
         for (let i = Math.floor((vals.length - 2) / 2); i >= 0; --i) {
             siftDown(this._heap, i, compare);
@@ -135,6 +116,28 @@ class Heap {
         while (this._heap.length > Math.max(0, maxLength)) {
             this.pop();
         }
+    }
+
+    /**
+     * This method gets the current length of the `Heap` instance.
+     *
+     * @public
+     * @export
+     * @return {number}
+     */
+    length() {
+        return this._heap.length;
+    }
+
+    /**
+     * This method gets the maximum length of the `Heap` instance.
+     *
+     * @public
+     * @export
+     * @return {number}
+     */
+    maxLength() {
+        return this._maxLength;
     }
 
     /**
@@ -152,7 +155,6 @@ class Heap {
         [ heap[0], heap[last] ] = [ heap[last], heap[0] ];
         heap.pop();
         siftDown(heap, 0, this.compare);
-        this.length = heap.length;
         return val;
     }
 
@@ -165,14 +167,13 @@ class Heap {
     push(val) {
         const heap = this._heap;
         const compare = this.compare;
-        if (heap.length < this.maxLength) {
+        if (heap.length < this._maxLength) {
             heap.push(val);
             siftUp(heap, heap.length - 1, compare);
         } else if (heap.length && compare(val, heap[0]) > 0) {
             heap[0] = val;
             siftDown(heap, 0, compare);
         }
-        this.length = heap.length;
     }
 
     /**

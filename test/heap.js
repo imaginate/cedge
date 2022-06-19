@@ -16,11 +16,11 @@ suite('Heap(nums)', function() {
     test('this.top()', function() {
         assert(heap.top() === 1);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === Infinity);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === Infinity);
     });
-    test('this.length', function() {
-        assert(heap.length === 8);
+    test('this.length()', function() {
+        assert(heap.length() === 8);
     });
     test('this.pop()', function() {
         assert(heap.pop() === 1);
@@ -28,11 +28,11 @@ suite('Heap(nums)', function() {
     test('this.pop()', function() {
         assert(heap.pop() === 2);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === Infinity);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === Infinity);
     });
-    test('this.length', function() {
-        assert(heap.length === 6);
+    test('this.length()', function() {
+        assert(heap.length() === 6);
     });
     test('this.top()', function() {
         assert(heap.top() === 3);
@@ -55,11 +55,11 @@ suite('Heap(nums)', function() {
     test('this.top()', function() {
         assert(heap.top() === 3);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === Infinity);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === Infinity);
     });
-    test('this.length', function() {
-        assert(heap.length === 7);
+    test('this.length()', function() {
+        assert(heap.length() === 7);
     });
 });
 
@@ -68,11 +68,11 @@ suite('Heap(nums, maxLength)', function() {
     test('this.top()', function() {
         assert(heap.top() === 4);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === 5);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === 5);
     });
-    test('this.length', function() {
-        assert(heap.length === 5);
+    test('this.length()', function() {
+        assert(heap.length() === 5);
     });
     test('this.pop()', function() {
         assert(heap.pop() === 4);
@@ -80,11 +80,11 @@ suite('Heap(nums, maxLength)', function() {
     test('this.pop()', function() {
         assert(heap.pop() === 5);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === 5);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === 5);
     });
-    test('this.length', function() {
-        assert(heap.length === 3);
+    test('this.length()', function() {
+        assert(heap.length() === 3);
     });
     test('this.top()', function() {
         assert(heap.top() === 6);
@@ -92,11 +92,11 @@ suite('Heap(nums, maxLength)', function() {
     test('this.push(1)', function() {
         heap.push(1);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === 5);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === 5);
     });
-    test('this.length', function() {
-        assert(heap.length === 4);
+    test('this.length()', function() {
+        assert(heap.length() === 4);
     });
     test('this.top()', function() {
         assert(heap.top() === 1);
@@ -113,11 +113,11 @@ suite('Heap(nums, maxLength)', function() {
     test('this.push(1)', function() {
         heap.push(1);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === 5);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === 5);
     });
-    test('this.length', function() {
-        assert(heap.length === 5);
+    test('this.length()', function() {
+        assert(heap.length() === 5);
     });
     test('this.top()', function() {
         assert(heap.top() === 6);
@@ -126,11 +126,11 @@ suite('Heap(nums, maxLength)', function() {
 
 suite('Heap()', function() {
     const heap = new Heap();
-    test('this.maxLength', function() {
-        assert(heap.maxLength === Infinity);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === Infinity);
     });
-    test('this.length', function() {
-        assert(heap.length === 0);
+    test('this.length()', function() {
+        assert(heap.length() === 0);
     });
     test('this.top()', function() {
         assert(heap.top() === undefined);
@@ -138,11 +138,11 @@ suite('Heap()', function() {
     test('this.push(1)', function() {
         heap.push(1);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === Infinity);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === Infinity);
     });
-    test('this.length', function() {
-        assert(heap.length === 1);
+    test('this.length()', function() {
+        assert(heap.length() === 1);
     });
     test('this.top()', function() {
         assert(heap.top() === 1);
@@ -150,11 +150,11 @@ suite('Heap()', function() {
     test('this.pop()', function() {
         assert(heap.pop() === 1);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === Infinity);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === Infinity);
     });
-    test('this.length', function() {
-        assert(heap.length === 0);
+    test('this.length()', function() {
+        assert(heap.length() === 0);
     });
     test('this.top()', function() {
         assert(heap.top() === undefined);
@@ -174,11 +174,11 @@ suite('Heap()', function() {
     test('this.push(5)', function() {
         heap.push(5);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === Infinity);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === Infinity);
     });
-    test('this.length', function() {
-        assert(heap.length === 5);
+    test('this.length()', function() {
+        assert(heap.length() === 5);
     });
     test('this.top()', function() {
         assert(heap.top() === 1);
@@ -187,11 +187,11 @@ suite('Heap()', function() {
 
 suite('Heap(maxLength)', function() {
     const heap = new Heap(3);
-    test('this.maxLength', function() {
-        assert(heap.maxLength === 3);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === 3);
     });
-    test('this.length', function() {
-        assert(heap.length === 0);
+    test('this.length()', function() {
+        assert(heap.length() === 0);
     });
     test('this.top()', function() {
         assert(heap.top() === undefined);
@@ -199,11 +199,11 @@ suite('Heap(maxLength)', function() {
     test('this.push(1)', function() {
         heap.push(1);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === 3);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === 3);
     });
-    test('this.length', function() {
-        assert(heap.length === 1);
+    test('this.length()', function() {
+        assert(heap.length() === 1);
     });
     test('this.top()', function() {
         assert(heap.top() === 1);
@@ -211,11 +211,11 @@ suite('Heap(maxLength)', function() {
     test('this.pop()', function() {
         assert(heap.pop() === 1);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === 3);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === 3);
     });
-    test('this.length', function() {
-        assert(heap.length === 0);
+    test('this.length()', function() {
+        assert(heap.length() === 0);
     });
     test('this.top()', function() {
         assert(heap.top() === undefined);
@@ -235,11 +235,11 @@ suite('Heap(maxLength)', function() {
     test('this.push(5)', function() {
         heap.push(5);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === 3);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === 3);
     });
-    test('this.length', function() {
-        assert(heap.length === 3);
+    test('this.length()', function() {
+        assert(heap.length() === 3);
     });
     test('this.top()', function() {
         assert(heap.top() === 3);
@@ -247,11 +247,11 @@ suite('Heap(maxLength)', function() {
     test('this.push(2)', function() {
         heap.push(2);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === 3);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === 3);
     });
-    test('this.length', function() {
-        assert(heap.length === 3);
+    test('this.length()', function() {
+        assert(heap.length() === 3);
     });
     test('this.top()', function() {
         assert(heap.top() === 3);
@@ -259,11 +259,11 @@ suite('Heap(maxLength)', function() {
     test('this.push(4)', function() {
         heap.push(4);
     });
-    test('this.maxLength', function() {
-        assert(heap.maxLength === 3);
+    test('this.maxLength()', function() {
+        assert(heap.maxLength() === 3);
     });
-    test('this.length', function() {
-        assert(heap.length === 3);
+    test('this.length()', function() {
+        assert(heap.length() === 3);
     });
     test('this.top()', function() {
         assert(heap.top() === 4);
