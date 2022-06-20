@@ -155,7 +155,13 @@ class AVL {
             if (compared === 0) {
                 --this._length;
                 if (--node.count) {
-                    return true;
+                    if (!all) {
+                        return true;
+                    }
+                    while (node.count) {
+                        --node.count;
+                        --this._length;
+                    }
                 }
                 break;
             }
