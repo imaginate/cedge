@@ -106,13 +106,17 @@ class AVL {
      */
     add(val) {
         ++this._length;
+
         if (!this._root) {
             this._root = new AVLNode(val);
             return;
         }
+
         let node = this._root;
-        let parent;
-        let compared;
+        let parent = null;
+        let compared = 0;
+
+        // insert the `val`
         while (node) {
             compared = this.compare(val, node.val);
             if (compared === 0) {
@@ -130,7 +134,43 @@ class AVL {
         } else {
             parent.right = node;
         }
-        // ADD SELF-BALANCING CODE
+
+        // rebalance the tree
+        while (parent) {
+            if (node === parent.left) {
+                if (parent.balance < 0) {
+                    let grandparent = parent.parent;
+                    if (node.balance > 0) {
+                        let child = node.right;
+                        rotateLeftRight(node, parent);
+                        node = child;
+                    } else {
+                        rotateRight(node, parent);
+                    }
+                    repairRotation(this, node, parent, grandparent);
+                    break;
+                } else if (--parent.balance === 0) {
+                    break;
+                }
+            } else {
+                if (parent.balance > 0) {
+                    let grandparent = parent.parent;
+                    if (node.balance < 0) {
+                        let child = node.left;
+                        rotateRightLeft(node, parent);
+                        node = child;
+                    } else {
+                        rotateLeft(node, parent);
+                    }
+                    repairRotation(this, node, parent, grandparent);
+                    break;
+                } else if (++parent.balance === 0) {
+                    break;
+                }
+            }
+            node = parent;
+            parent = node.parent;
+        }
     }
 
     /**
@@ -147,9 +187,12 @@ class AVL {
         if (!this._length) {
             return false;
         }
+
         let node = this._root;
-        let parent;
-        let compared;
+        let parent = null;
+        let compared = 0;
+
+        // delete the `val`
         while (node) {
             compared = this.compare(val, node.val);
             if (compared === 0) {
@@ -173,7 +216,9 @@ class AVL {
         if (!node) {
             return false;
         }
-        // ADD DELETE CODE
+
+        // rebalance the tree
+        
     }
 
     /**
@@ -243,6 +288,27 @@ function defaultNumberCompare(a, b) {
  */
 function defaultStringCompare(a, b) {
     return a.localeCompare(b);
+}
+
+/**
+ * @private
+ * @param {!AVL} tree
+ * @param {!AVLNode} node
+ * @param {!AVLNode} parent
+ * @param {?AVLNode} grandparent
+ * @return {void}
+ */
+function repairRotation(tree, node, parent, grandparent) {
+    node.parent = grandparent;
+    if (!grandparent) {
+        tree._root = node;
+        return;
+    }
+    if (parent === grandparent.left) {
+        grandparent.left = node;
+    } else {
+        grandparent.right = node;
+    }
 }
 
 module.exports = AVL;
