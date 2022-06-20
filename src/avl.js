@@ -13,9 +13,10 @@
 
 class AVLNode {
     /**
+     * @private
      * @param {*} val
      *     Must be a comparable value.
-     * @param {AVLNode=} parent
+     * @param {?AVLNode=} parent
      *     If `parent` is `null` then it is considered the `root` node.
      * @constructor
      */
@@ -35,7 +36,7 @@ class AVL {
      * may provide an array of initial values. You may provide a custom
      * comparator method.
      *
-     * @param {*[]=} vals = `[]`
+     * @param {!Array<*>=} vals = `[]`
      *     If `vals` is type `function` or `string` the `compare` parameter is
      *     set to `vals`, and `vals` is set to `[]`.
      * @param {((!function(*, *): number)|string)=} compare = `"number"`
@@ -59,28 +60,57 @@ class AVL {
         }
         if (typeof compare === 'string') {
             compare = compare === 'string'
-                ? this.defaultStringCompare
-                : this.defaultNumberCompare;
+                ? defaultStringCompare
+                : defaultNumberCompare;
         }
-        this.root = null;
-        this.length = 0;
+
+        /**
+         * This is the internal pointer to the root of the tree. Do **not**
+         * overwrite this property. It is meant for internal use only.
+         *
+         * @private
+         * @const {?AVLNode}
+         */
+        this._root = null;
+
+        /**
+         * This is the comparator used by the tree instance. It should be
+         * treated as read-only. If you overwrite this property you will
+         * change the results of future comparisons.
+         *
+         * @public
+         * @export
+         * @const {!function(*, *): number}
+         */
         this.compare = compare;
+
+        /**
+         * This is the internal value for the length of the tree. Do **not**
+         * overwrite this property. It is meant for internal use only.
+         *
+         * @private
+         * @const {number}
+         */
+        this._length = 0;
+
         for (let i = 0; i < vals.length; ++i) {
             this.add(vals[i]);
         }
     }
-    
+
     /**
+     * @public
+     * @export
      * @param {*} val
      * @return {void}
      */
     add(val) {
-        ++this.length;
-        if (!this.root) {
-            this.root = new AVLNode(val);
+        ++this._length;
+        if (!this._root) {
+            this._root = new AVLNode(val);
             return;
         }
-        let node = this.root;
+        let node = this._root;
         let parent;
         let compared;
         while (node) {
@@ -90,11 +120,9 @@ class AVL {
                 return;
             }
             parent = node;
-            if (compared < 0) {
-                node = node.left;
-            } else {
-                node = node.right;
-            }
+            node = compared < 0
+                ? node.left
+                : node.right;
         }
         node = new AVLNode(val, parent);
         if (compared < 0) {
@@ -106,24 +134,8 @@ class AVL {
     }
 
     /**
-     * @param {number} a
-     * @param {number} b
-     * @return {number}
-     */
-    defaultNumberCompare(a, b) {
-        return a - b;
-    }
-
-    /**
-     * @param {string} a
-     * @param {string} b
-     * @return {number}
-     */
-    defaultStringCompare(a, b) {
-        return a.localeCompare(b);
-    }
-
-    /**
+     * @public
+     * @export
      * @param {*} val
      * @param {boolean=} all = `false`
      *     Denote whether you want to delete one occurrence of `val` or all
@@ -131,14 +143,16 @@ class AVL {
      * @return {boolean}
      */
     delete(val, all = false) {
-        if (!this.length) {
+        if (!this._length) {
             return false;
         }
-        --this.length;
+        --this._length;
         // ADD DELETE CODE
     }
 
     /**
+     * @public
+     * @export
      * @param {*} val
      * @return {boolean}
      */
@@ -146,22 +160,63 @@ class AVL {
     }
 
     /**
+     * This method gets the current length for the `AVL` instance.
+     *
+     * @public
+     * @export
+     * @return {number}
+     */
+    length() {
+        return this._length;
+    }
+
+    /**
+     * This method returns an inorder-sorted array of the tree's values.
+     *
+     * @public
+     * @export
      * @return {!Array<*>}
      */
     inorder() {
     }
 
     /**
+     * This method returns a postorder-sorted array of the tree's values.
+     *
+     * @public
+     * @export
      * @return {!Array<*>}
      */
     postorder() {
     }
 
     /**
+     * This method returns a preorder-sorted array of the tree's values.
+     *
+     * @public
+     * @export
      * @return {!Array<*>}
      */
     preorder() {
     }
+}
+
+/**
+ * @param {number} a
+ * @param {number} b
+ * @return {number}
+ */
+function defaultNumberCompare(a, b) {
+    return a - b;
+}
+
+/**
+ * @param {string} a
+ * @param {string} b
+ * @return {number}
+ */
+function defaultStringCompare(a, b) {
+    return a.localeCompare(b);
 }
 
 module.exports = AVL;

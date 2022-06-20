@@ -72,7 +72,7 @@ class Deque {
          * overwrite this property. It is meant for internal use only.
          *
          * @private
-         * @const {?DequeNode}
+         * @const {number}
          */
         this._length = 0;
 
