@@ -141,12 +141,32 @@ class AVL {
      *     Denote whether you want to delete one occurrence of `val` or all
      *     occurrences of `val` (i.e. do you want to delete the duplicates).
      * @return {boolean}
+     *     The return value indicates whether `val` was found within the tree.
      */
     delete(val, all = false) {
         if (!this._length) {
             return false;
         }
-        --this._length;
+        let node = this._root;
+        let parent;
+        let compared;
+        while (node) {
+            compared = this.compare(val, node.val);
+            if (compared === 0) {
+                --this._length;
+                if (--node.count) {
+                    return true;
+                }
+                break;
+            }
+            parent = node;
+            node = compared < 0
+                ? node.left
+                : node.right;
+        }
+        if (!node) {
+            return false;
+        }
         // ADD DELETE CODE
     }
 
