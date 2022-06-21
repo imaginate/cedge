@@ -231,12 +231,99 @@ class AVL {
         }
         if (parent.left === node) {
             parent.left = node.left || node.right;
+            if (parent.left) {
+                parent.left.parent = parent;
+            }
+            ++parent.balance;
         } else {
             parent.right = node.left || node.right;
+            if (parent.right) {
+                parent.right.parent = parent;
+            }
+            --parent.balance;
         }
 
         // rebalance the tree
-        
+        let grandparent = parent.parent;
+        if (parent.balance > 1) {
+            node = parent.right;
+            const balance = node.balance;
+            if (balance < 0) {
+                const child = node.left;
+                rotateRightLeft(node, parent);
+                node = child;
+            } else {
+                rotateLeft(node, parent);
+            }
+            repairRotation(this, node, parent, grandparent);
+            if (balance === 0) {
+                return;
+            }
+        } else if (parent.balance < 1) {
+            node = parent.left;
+            const balance = node.balance;
+            if (balance > 0) {
+                const child = node.right;
+                rotateLeftRight(node, parent);
+                node = child;
+            } else {
+                rotateRight(node, parent);
+            }
+            repairRotation(this, node, parent, grandparent);
+            if (balance === 0) {
+                return;
+            }
+        } else if (parent.balance === 0) {
+            node = parent;
+        } else {
+            return;
+        }
+        parent = grandparent;
+        while (parent) {
+            grandparent = parent.parent;
+            if (node === parent.left) {
+                if (parent.balance > 0) {
+                    node = parent.right;
+                    const balance = node.balance;
+                    if (balance < 0) {
+                        let child = node.left;
+                        rotateRightLeft(node, parent);
+                        node = child;
+                    } else {
+                        rotateLeft(node, parent);
+                    }
+                    repairRotation(this, node, parent, grandparent);
+                    if (balance === 0) {
+                        return;
+                    }
+                } else if (++parent.balance === 0) {
+                    return;
+                } else {
+                    node = parent;
+                }
+            } else {
+                if (parent.balance < 0) {
+                    node = parent.left;
+                    const balance = node.balance;
+                    if (node.balance > 0) {
+                        let child = node.right;
+                        rotateLeftRight(node, parent);
+                        node = child;
+                    } else {
+                        rotateRight(node, parent);
+                    }
+                    repairRotation(this, node, parent, grandparent);
+                    if (balance === 0) {
+                        return;
+                    }
+                } else if (--parent.balance === 0) {
+                    return;
+                } else {
+                    node = parent;
+                }
+            }
+            parent = grandparent;
+        }
     }
 
     /**
