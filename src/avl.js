@@ -334,6 +334,20 @@ class AVL {
      * @return {boolean}
      */
     has(val) {
+        if (!this._length) {
+            return false;
+        }
+        let node = this._root;
+        while (node) {
+            let compared = this.compare(val, node.val);
+            if (compared === 0) {
+                return true;
+            }
+            node = compared < 0
+                ? node.left
+                : node.right;
+        }
+        return false;
     }
 
     /**
