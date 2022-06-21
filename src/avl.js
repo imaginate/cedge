@@ -382,6 +382,9 @@ class AVL {
      * @return {!Array<*>}
      */
     postorder() {
+        const vals = [];
+        savePostorder(this._root, vals);
+        return vals;
     }
 
     /**
@@ -473,6 +476,21 @@ function saveInorder(node, vals) {
     saveInorder(node.left, vals);
     vals.push(node.val);
     saveInorder(node.right, vals);
+}
+
+/**
+ * @private
+ * @param {?AVLNode} node
+ * @param {!Array<*>} vals
+ * @return {void}
+ */
+function savePostorder(node, vals) {
+    if (!node) {
+        return;
+    }
+    savePostorder(node.left, vals);
+    savePostorder(node.right, vals);
+    vals.push(node.val);
 }
 
 module.exports = AVL;
