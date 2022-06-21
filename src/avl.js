@@ -257,7 +257,7 @@ class AVL {
             }
             repairRotation(this, node, parent, grandparent);
             if (balance === 0) {
-                return;
+                return true;
             }
         } else if (parent.balance < 1) {
             node = parent.left;
@@ -271,12 +271,12 @@ class AVL {
             }
             repairRotation(this, node, parent, grandparent);
             if (balance === 0) {
-                return;
+                return true;
             }
         } else if (parent.balance === 0) {
             node = parent;
         } else {
-            return;
+            return true;
         }
         parent = grandparent;
         while (parent) {
@@ -294,10 +294,10 @@ class AVL {
                     }
                     repairRotation(this, node, parent, grandparent);
                     if (balance === 0) {
-                        return;
+                        break;
                     }
                 } else if (++parent.balance === 0) {
-                    return;
+                    break;
                 } else {
                     node = parent;
                 }
@@ -314,16 +314,17 @@ class AVL {
                     }
                     repairRotation(this, node, parent, grandparent);
                     if (balance === 0) {
-                        return;
+                        break;
                     }
                 } else if (--parent.balance === 0) {
-                    return;
+                    break;
                 } else {
                     node = parent;
                 }
             }
             parent = grandparent;
         }
+        return true;
     }
 
     /**
