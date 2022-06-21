@@ -216,6 +216,24 @@ class AVL {
         if (!node) {
             return false;
         }
+        if (node.balance < 0) {
+            const prev = findPrevNode(node);
+            node.val = prev.val;
+            node.count = prev.count;
+            node = prev;
+            parent = node.parent;
+        } else if (node.balance > 0 || node.right) {
+            const next = findNextNode(node);
+            node.val = next.val;
+            node.count = next.count;
+            node = next;
+            parent = node.parent;
+        }
+        if (parent.left === node) {
+            parent.left = node.left || node.right;
+        } else {
+            parent.right = node.left || node.right;
+        }
 
         // rebalance the tree
         
@@ -270,6 +288,32 @@ class AVL {
      */
     preorder() {
     }
+}
+
+/**
+ * @private
+ * @param {!AVLNode} node
+ * @return {!AVLNode}
+ */
+function findNextNode(node) {
+    node = node.right;
+    while (node.left) {
+        node = node.left;
+    }
+    return node;
+}
+
+/**
+ * @private
+ * @param {!AVLNode} node
+ * @return {!AVLNode}
+ */
+function findPrevNode(node) {
+    node = node.left;
+    while (node.right) {
+        node = node.right;
+    }
+    return node;
 }
 
 /**
