@@ -369,6 +369,9 @@ class AVL {
      * @return {!Array<*>}
      */
     inorder() {
+        const vals = [];
+        saveInorder(this._root, vals);
+        return vals;
     }
 
     /**
@@ -455,6 +458,21 @@ function repairRotation(tree, node, parent, grandparent) {
     } else {
         grandparent.right = node;
     }
+}
+
+/**
+ * @private
+ * @param {?AVLNode} node
+ * @param {!Array<*>} vals
+ * @return {void}
+ */
+function saveInorder(node, vals) {
+    if (!node) {
+        return;
+    }
+    saveInorder(node.left, vals);
+    vals.push(node.val);
+    saveInorder(node.right, vals);
 }
 
 module.exports = AVL;
