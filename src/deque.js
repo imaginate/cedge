@@ -93,20 +93,7 @@ class Deque {
             this.push(vals[i]);
         }
     }
-    
-    /**
-     * This method gets the value for the head of the `Deque` instance.
-     *
-     * @public
-     * @export
-     * @return {*}
-     */
-    first() {
-        return this._length
-            ? this._head.val
-            : undefined;
-    }
-        
+
     /**
      * This method gets the value for the tail of the `Deque` instance.
      *
@@ -114,9 +101,22 @@ class Deque {
      * @export
      * @return {*}
      */
-    last() {
+    back() {
         return this._length
             ? this._tail.val
+            : undefined;
+    }
+
+    /**
+     * This method gets the value for the head of the `Deque` instance.
+     *
+     * @public
+     * @export
+     * @return {*}
+     */
+    front() {
+        return this._length
+            ? this._head.val
             : undefined;
     }
 
@@ -162,7 +162,7 @@ class Deque {
         --this._length;
         return val;
     }
-    
+
     /**
      * @public
      * @export
@@ -187,7 +187,7 @@ class Deque {
         }
         ++this._length;
     }
-    
+
     /**
      * @public
      * @export
