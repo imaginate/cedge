@@ -121,7 +121,7 @@ class MyQueue {
         }
         const val = this._tail.val;
         if (this._head.next) {
-            const node = this._head;
+            let node = this._head;
             while (node.next.next) {
                 node = node.next;
             }
