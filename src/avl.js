@@ -671,7 +671,7 @@ function saveInorderDups(node, vals) {
         return;
     }
     saveInorder(node.left, vals);
-    let count = vals.count;
+    let count = node.count;
     while (count--) {
         vals.push(node.val);
     }
@@ -705,7 +705,7 @@ function savePostorderDups(node, vals) {
     }
     savePostorder(node.left, vals);
     savePostorder(node.right, vals);
-    let count = vals.count;
+    let count = node.count;
     while (count--) {
         vals.push(node.val);
     }
@@ -736,7 +736,7 @@ function savePreorderDups(node, vals) {
     if (!node) {
         return;
     }
-    let count = vals.count;
+    let count = node.count;
     while (count--) {
         vals.push(node.val);
     }
