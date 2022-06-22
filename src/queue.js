@@ -43,6 +43,7 @@ class MyQueue {
          * overwrite this property. It is meant for internal use only.
          *
          * @private
+         * @export
          * @const {?MyQueueNode}
          */
         this._head = null;
@@ -52,6 +53,7 @@ class MyQueue {
          * overwrite this property. It is meant for internal use only.
          *
          * @private
+         * @export
          * @const {?MyQueueNode}
          */
         this._tail = null;
@@ -61,6 +63,7 @@ class MyQueue {
          * overwrite this property. It is meant for internal use only.
          *
          * @private
+         * @export
          * @const {number}
          */
         this._length = 0;

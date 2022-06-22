@@ -69,6 +69,7 @@ class AVL {
          * overwrite this property. It is meant for internal use only.
          *
          * @private
+         * @export
          * @const {?AVLNode}
          */
         this._root = null;
@@ -89,6 +90,7 @@ class AVL {
          * overwrite this property. It is meant for internal use only.
          *
          * @private
+         * @export
          * @const {number}
          */
         this._length = 0;

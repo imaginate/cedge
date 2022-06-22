@@ -54,6 +54,7 @@ class Deque {
          * overwrite this property. It is meant for internal use only.
          *
          * @private
+         * @export
          * @const {?DequeNode}
          */
         this._head = null;
@@ -63,6 +64,7 @@ class Deque {
          * overwrite this property. It is meant for internal use only.
          *
          * @private
+         * @export
          * @const {?DequeNode}
          */
         this._tail = null;
@@ -72,6 +74,7 @@ class Deque {
          * overwrite this property. It is meant for internal use only.
          *
          * @private
+         * @export
          * @const {number}
          */
         this._length = 0;
@@ -81,6 +84,7 @@ class Deque {
          * this property. It is meant for internal use only.
          *
          * @private
+         * @export
          * @const {number}
          */
         this._maxLength = maxLength;

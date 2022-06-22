@@ -86,6 +86,7 @@ class Heap {
          * overwrite this property. It is meant for internal use only.
          *
          * @private
+         * @export
          * @const {!Array<*>}
          */
         this._heap = vals.slice();
@@ -106,6 +107,7 @@ class Heap {
          * this property. It is meant for internal use only.
          *
          * @private
+         * @export
          * @const {number}
          */
         this._maxLength = maxLength;
