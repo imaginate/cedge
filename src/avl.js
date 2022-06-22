@@ -670,12 +670,12 @@ function saveInorderDups(node, vals) {
     if (!node) {
         return;
     }
-    saveInorder(node.left, vals);
+    saveInorderDups(node.left, vals);
     let count = node.count;
     while (count--) {
         vals.push(node.val);
     }
-    saveInorder(node.right, vals);
+    saveInorderDups(node.right, vals);
 }
 
 /**
@@ -703,8 +703,8 @@ function savePostorderDups(node, vals) {
     if (!node) {
         return;
     }
-    savePostorder(node.left, vals);
-    savePostorder(node.right, vals);
+    savePostorderDups(node.left, vals);
+    savePostorderDups(node.right, vals);
     let count = node.count;
     while (count--) {
         vals.push(node.val);
@@ -740,8 +740,8 @@ function savePreorderDups(node, vals) {
     while (count--) {
         vals.push(node.val);
     }
-    savePreorder(node.left, vals);
-    savePreorder(node.right, vals);
+    savePreorderDups(node.left, vals);
+    savePreorderDups(node.right, vals);
 }
 
 module.exports = AVL;
