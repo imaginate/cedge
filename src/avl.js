@@ -176,6 +176,31 @@ class AVL {
     }
 
     /**
+     * This method returns the count of `val` existing within the tree.
+     *
+     * @public
+     * @export
+     * @param {*} val
+     * @return {number}
+     */
+    count(val) {
+        if (!this._length) {
+            return 0;
+        }
+        let node = this._root;
+        while (node) {
+            const compared = this.compare(val, node.val);
+            if (compared === 0) {
+                return node.count;
+            }
+            node = compared < 0
+                ? node.left
+                : node.right;
+        }
+        return 0;
+    }
+
+    /**
      * @public
      * @export
      * @param {*} val
@@ -341,7 +366,7 @@ class AVL {
         }
         let node = this._root;
         while (node) {
-            let compared = this.compare(val, node.val);
+            const compared = this.compare(val, node.val);
             if (compared === 0) {
                 return true;
             }
