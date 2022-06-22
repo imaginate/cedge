@@ -243,11 +243,11 @@ suite('AVL(nums)', function() {
         assert(avl.postorder(false).every((val, i) => val === nums[i]));
     });
     test('this.preorder()', function() {
-        const nums = [4,4,4,2,1,3,6,5,7,8];
+        const nums = [4,4,4,2,1,3,6,5,8,7];
         assert(avl.preorder().every((val, i) => val === nums[i]));
     });
     test('this.preorder(false)', function() {
-        const nums = [4,2,1,3,6,5,7,8];
+        const nums = [4,2,1,3,6,5,8,7];
         assert(avl.preorder(false).every((val, i) => val === nums[i]));
     });
     test('this.delete(4)', function() {
@@ -279,11 +279,11 @@ suite('AVL(nums)', function() {
         assert(avl.postorder(false).every((val, i) => val === nums[i]));
     });
     test('this.preorder()', function() {
-        const nums = [4,4,2,1,3,6,5,7,8];
+        const nums = [4,4,2,1,3,6,5,8,7];
         assert(avl.preorder().every((val, i) => val === nums[i]));
     });
     test('this.preorder(false)', function() {
-        const nums = [4,2,1,3,6,5,7,8];
+        const nums = [4,2,1,3,6,5,8,7];
         assert(avl.preorder(false).every((val, i) => val === nums[i]));
     });
     test('this.delete(4, true)', function() {
