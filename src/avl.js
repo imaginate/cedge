@@ -286,7 +286,7 @@ class AVL {
             if (balance === 0) {
                 return true;
             }
-        } else if (parent.balance < 1) {
+        } else if (parent.balance < -1) {
             node = parent.left;
             const balance = node.balance;
             if (balance > 0) {
