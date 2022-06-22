@@ -72,19 +72,6 @@ class MyQueue {
             this.push(vals[i]);
         }
     }
-    
-    /**
-     * This method gets the value for the head of the `Queue` instance.
-     *
-     * @public
-     * @export
-     * @return {*}
-     */
-    first() {
-        return this._length
-            ? this._head.val
-            : undefined;
-    }
 
     /**
      * This method gets the value for the tail of the `Queue` instance.
@@ -93,9 +80,22 @@ class MyQueue {
      * @export
      * @return {*}
      */
-    last() {
+    back() {
         return this._length
             ? this._tail.val
+            : undefined;
+    }
+
+    /**
+     * This method gets the value for the head of the `Queue` instance.
+     *
+     * @public
+     * @export
+     * @return {*}
+     */
+    front() {
+        return this._length
+            ? this._head.val
             : undefined;
     }
 
@@ -152,7 +152,7 @@ class MyQueue {
         }
         ++this._length;
     }
-    
+
     /**
      * @public
      * @export
