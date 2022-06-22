@@ -468,6 +468,52 @@ function repairRotation(tree, node, parent, grandparent) {
 
 /**
  * @private
+ * @param {!AVLNode} node
+ * @param {!AVLNode} parent
+ * @return {void}
+ */
+function rotateLeft(node, parent) {
+    const child = node.left;
+    parent.right = child;
+    if (child) {
+        child.parent = parent;
+    }
+    node.left = parent;
+    parent.parent = node;
+    if (node.balance === 0) {
+        --node.balance;
+        --parent.balance;
+    } else {
+        node.balance = 0;
+        parent.balance = 0;
+    }
+}
+
+/**
+ * @private
+ * @param {!AVLNode} node
+ * @param {!AVLNode} parent
+ * @return {void}
+ */
+function rotateRight(node, parent) {
+    const child = node.right;
+    parent.left = child;
+    if (child) {
+        child.parent = parent;
+    }
+    node.right = parent;
+    parent.parent = node;
+    if (node.balance === 0) {
+        ++node.balance;
+        ++parent.balance;
+    } else {
+        node.balance = 0;
+        parent.balance = 0;
+    }
+}
+
+/**
+ * @private
  * @param {?AVLNode} node
  * @param {!Array<*>} vals
  * @return {void}
