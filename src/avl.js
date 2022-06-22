@@ -323,7 +323,7 @@ class AVL {
                     if (balance === 0) {
                         break;
                     }
-                } else if (++parent.balance === 0) {
+                } else if (++parent.balance > 0) {
                     break;
                 } else {
                     node = parent;
@@ -343,7 +343,7 @@ class AVL {
                     if (balance === 0) {
                         break;
                     }
-                } else if (--parent.balance === 0) {
+                } else if (--parent.balance < 0) {
                     break;
                 } else {
                     node = parent;
