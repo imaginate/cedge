@@ -393,11 +393,19 @@ class AVL {
      *
      * @public
      * @export
+     * @param {boolean=} dups = `true`
+     *     Denote whether you want duplicate values to be added to the
+     *     resulting array. Note that duplicate values are added adjacent to
+     *     each other since they represent one node.
      * @return {!Array<*>}
      */
-    inorder() {
+    inorder(dups = true) {
         const vals = [];
-        saveInorder(this._root, vals);
+        if (dups) {
+            saveInorderDups(this._root, vals);
+        } else {
+            saveInorder(this._root, vals);
+        }
         return vals;
     }
 
@@ -406,11 +414,19 @@ class AVL {
      *
      * @public
      * @export
+     * @param {boolean=} dups = `true`
+     *     Denote whether you want duplicate values to be added to the
+     *     resulting array. Note that duplicate values are added adjacent to
+     *     each other since they represent one node.
      * @return {!Array<*>}
      */
-    postorder() {
+    postorder(dups = true) {
         const vals = [];
-        savePostorder(this._root, vals);
+        if (dups) {
+            savePostorderDups(this._root, vals);
+        } else {
+            savePostorder(this._root, vals);
+        }
         return vals;
     }
 
@@ -419,11 +435,19 @@ class AVL {
      *
      * @public
      * @export
+     * @param {boolean=} dups = `true`
+     *     Denote whether you want duplicate values to be added to the
+     *     resulting array. Note that duplicate values are added adjacent to
+     *     each other since they represent one node.
      * @return {!Array<*>}
      */
-    preorder() {
+    preorder(dups = true) {
         const vals = [];
-        savePreorder(this._root, vals);
+        if (dups) {
+            savePreorderDups(this._root, vals);
+        } else {
+            savePreorder(this._root, vals);
+        }
         return vals;
     }
 }
@@ -642,6 +666,24 @@ function saveInorder(node, vals) {
  * @param {!Array<*>} vals
  * @return {void}
  */
+function saveInorderDups(node, vals) {
+    if (!node) {
+        return;
+    }
+    saveInorder(node.left, vals);
+    let count = vals.count;
+    while (count--) {
+        vals.push(node.val);
+    }
+    saveInorder(node.right, vals);
+}
+
+/**
+ * @private
+ * @param {?AVLNode} node
+ * @param {!Array<*>} vals
+ * @return {void}
+ */
 function savePostorder(node, vals) {
     if (!node) {
         return;
@@ -657,11 +699,47 @@ function savePostorder(node, vals) {
  * @param {!Array<*>} vals
  * @return {void}
  */
+function savePostorderDups(node, vals) {
+    if (!node) {
+        return;
+    }
+    savePostorder(node.left, vals);
+    savePostorder(node.right, vals);
+    let count = vals.count;
+    while (count--) {
+        vals.push(node.val);
+    }
+}
+
+/**
+ * @private
+ * @param {?AVLNode} node
+ * @param {!Array<*>} vals
+ * @return {void}
+ */
 function savePreorder(node, vals) {
     if (!node) {
         return;
     }
     vals.push(node.val);
+    savePreorder(node.left, vals);
+    savePreorder(node.right, vals);
+}
+
+/**
+ * @private
+ * @param {?AVLNode} node
+ * @param {!Array<*>} vals
+ * @return {void}
+ */
+function savePreorderDups(node, vals) {
+    if (!node) {
+        return;
+    }
+    let count = vals.count;
+    while (count--) {
+        vals.push(node.val);
+    }
     savePreorder(node.left, vals);
     savePreorder(node.right, vals);
 }
