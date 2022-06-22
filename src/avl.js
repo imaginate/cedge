@@ -480,6 +480,7 @@ function rotateLeft(node, parent) {
     }
     node.left = parent;
     parent.parent = node;
+
     if (node.balance === 0) {
         --node.balance;
         --parent.balance;
@@ -487,6 +488,46 @@ function rotateLeft(node, parent) {
         node.balance = 0;
         parent.balance = 0;
     }
+}
+
+/**
+ * @private
+ * @param {!AVLNode} node
+ * @param {!AVLNode} parent
+ * @return {void}
+ */
+function rotateLeftRight(node, parent) {
+    const grandparent = parent;
+    parent = node;
+    node = parent.right;
+
+    let child = node.left;
+    parent.right = child;
+    if (child) {
+        child.parent = parent;
+    }
+    node.left = parent;
+    parent.parent = node;
+
+    child = node.right;
+    grandparent.left = child;
+    if (child) {
+        child.parent = grandparent;
+    }
+    node.right = grandparent;
+    grandparent.parent = node;
+
+    if (node.balance < 0) {
+        parent.balance = 0;
+        grandparent.balance = 1;
+    } else if (node.balance > 0) {
+        parent.balance = -1;
+        grandparent.balance = 0;
+    } else {
+        parent.balance = 0;
+        grandparent.balance = 0;
+    }
+    node.balance = 0;
 }
 
 /**
@@ -503,6 +544,7 @@ function rotateRight(node, parent) {
     }
     node.right = parent;
     parent.parent = node;
+
     if (node.balance === 0) {
         ++node.balance;
         ++parent.balance;
@@ -510,6 +552,46 @@ function rotateRight(node, parent) {
         node.balance = 0;
         parent.balance = 0;
     }
+}
+
+/**
+ * @private
+ * @param {!AVLNode} node
+ * @param {!AVLNode} parent
+ * @return {void}
+ */
+function rotateRightLeft(node, parent) {
+    const grandparent = parent;
+    parent = node;
+    node = parent.left;
+
+    let child = node.right;
+    parent.left = child;
+    if (child) {
+        child.parent = parent;
+    }
+    node.right = parent;
+    parent.parent = node;
+
+    child = node.left;
+    grandparent.right = child;
+    if (child) {
+        child.parent = grandparent;
+    }
+    node.left = grandparent;
+    grandparent.parent = node;
+
+    if (node.balance < 0) {
+        parent.balance = 1;
+        grandparent.balance = 0;
+    } else if (node.balance > 0) {
+        parent.balance = 0;
+        grandparent.balance = -1;
+    } else {
+        parent.balance = 0;
+        grandparent.balance = 0;
+    }
+    node.balance = 0;
 }
 
 /**
