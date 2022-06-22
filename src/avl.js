@@ -402,6 +402,24 @@ class AVL {
 }
 
 /**
+ * @param {number} a
+ * @param {number} b
+ * @return {number}
+ */
+function defaultNumberCompare(a, b) {
+    return a - b;
+}
+
+/**
+ * @param {string} a
+ * @param {string} b
+ * @return {number}
+ */
+function defaultStringCompare(a, b) {
+    return a.localeCompare(b);
+}
+
+/**
  * @private
  * @param {!AVLNode} node
  * @return {!AVLNode}
@@ -425,24 +443,6 @@ function findPrevNode(node) {
         node = node.right;
     }
     return node;
-}
-
-/**
- * @param {number} a
- * @param {number} b
- * @return {number}
- */
-function defaultNumberCompare(a, b) {
-    return a - b;
-}
-
-/**
- * @param {string} a
- * @param {string} b
- * @return {number}
- */
-function defaultStringCompare(a, b) {
-    return a.localeCompare(b);
 }
 
 /**
