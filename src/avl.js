@@ -1,6 +1,6 @@
 /**
  * Cedge
- * @file The `AVL` class.
+ * @file The *AVL* class.
  * @version 1.0.0.alpha
  * @see [Cedge](https://github.com/imaginate/cedge)
  *
@@ -19,7 +19,7 @@ var AVL = (function() {
          * @param {*} val
          *     Must be a comparable value.
          * @param {?AVLNode=} parent
-         *     If `parent` is `null` then it is considered the `root` node.
+         *     If *parent* is `null` then it is considered the root node.
          * @constructor
          */
         constructor(val, parent = null) {
@@ -34,22 +34,22 @@ var AVL = (function() {
 
     class AVL {
         /**
-         * The `AVL` constructor. This is a self-balancing binary search tree.
+         * The *AVL* constructor. This is a self-balancing binary search tree.
          * You may provide an array of initial values. You may provide a
          * custom comparator method.
          *
          * @param {!Array<*>=} vals = `[]`
-         *     If `vals` is type `function` or `string` the `compare`
-         *     parameter is set to `vals`, and `vals` is set to `[]`.
+         *     If *vals* is type `"function"` or `"string"` the *compare*
+         *     parameter is set to *vals*, and *vals* is set to `[]`.
          * @param {((!function(*, *): number)|string)=} compare = `"number"`
          *     The method used to determine the order of the values. Must
-         *     return a number less than `0` to sort `a` before `b`, equal to
+         *     return a number less than `0` to sort *a* before *b*, equal to
          *     `0` to increase the count of the existing value (i.e. duplicate
          *     values are not saved directly to the tree; instead they
          *     increase an internal counter saved within the original value's
          *     node; so do **not** return `0` unless you can return the
          *     original's value in place of the equivalent's value), or
-         *     greater than `0` to sort `b` before `a`. The default
+         *     greater than `0` to sort *b* before *a*. The default
          *     comparators are `"number"` which is `a - b` and `"string"`
          *     which is `a.localeCompare(b)`.
          * @constructor
@@ -123,7 +123,7 @@ var AVL = (function() {
             let parent = null;
             let compared = 0;
 
-            // insert the `val`
+            // insert the *val*
             while (node) {
                 compared = this.compare(val, node.val);
                 if (compared === 0) {
@@ -181,7 +181,7 @@ var AVL = (function() {
         }
 
         /**
-         * This method returns the count of `val` existing within the tree.
+         * This method returns the count of *val* existing within the tree.
          *
          * @public
          * @export
@@ -210,11 +210,11 @@ var AVL = (function() {
          * @export
          * @param {*} val
          * @param {boolean=} all = `false`
-         *     Denote whether you want to delete one occurrence of `val` or
-         *     all occurrences of `val` (i.e. do you want to delete the
+         *     Denote whether you want to delete one occurrence of *val* or
+         *     all occurrences of *val* (i.e. do you want to delete the
          *     duplicates).
          * @return {boolean}
-         *     The return value indicates whether `val` was found within the
+         *     The return value indicates whether *val* was found within the
          *     tree.
          */
         delete(val, all = false) {
@@ -226,7 +226,7 @@ var AVL = (function() {
             let parent = null;
             let compared = 0;
 
-            // delete the `val`
+            // delete the *val*
             while (node) {
                 compared = this.compare(val, node.val);
                 if (compared === 0) {
@@ -385,7 +385,7 @@ var AVL = (function() {
         }
 
         /**
-         * This method gets the current length for the `AVL` instance.
+         * This method gets the current length for the *AVL* instance.
          *
          * @public
          * @export

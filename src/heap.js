@@ -1,6 +1,6 @@
 /**
  * Cedge
- * @file The `Heap` class.
+ * @file The *Heap* class.
  * @version 1.0.0.alpha
  * @see [Cedge](https://github.com/imaginate/cedge)
  *
@@ -15,36 +15,36 @@ var Heap = (function() {
 
     class Heap {
         /**
-         * The `Heap` constructor. You may provide an unsorted array of values
+         * The *Heap* constructor. You may provide an unsorted array of values
          * which it clones and then heapifies in linear time (faster than
          * individually pushing each value into an empty heap which takes
-         * O(n*log(n)) time). You may provide a custom comparator method. You
-         * may provide a limit for the length of `Heap`. If a limit is
-         * provided the heap will only keep the lowest `maxLength` count of
+         * `O(n*log(n))` time). You may provide a custom comparator method.
+         * You may provide a limit for the length of *Heap*. If a limit is
+         * provided the heap will only keep the lowest *maxLength* count of
          * the values provided and will only add new values that would sort
          * lower than the top value. Note that limiting the heap increases
-         * the constructor's time complexity to O((n-maxLength)*log(n)).
+         * the constructor's time complexity to `O((n-maxLength)*log(n))`.
          *
          * @public
          * @param {!Array<*>=} vals = `[]`
-         *     If `vals` is type `function` or `string` the `compare`
-         *     parameter is set to `vals`, and `vals` is set to `[]`. If
-         *     `vals` is type `number` the `maxLength` parameter is set to
-         *     `vals`, and `vals` is set to `[]`.
+         *     If *vals* is type `"function"` or `"string"` the *compare*
+         *     parameter is set to *vals*, and *vals* is set to `[]`. If
+         *     *vals* is type `"number"` the *maxLength* parameter is set to
+         *     *vals*, and *vals* is set to `[]`.
          * @param {((!function(*, *): number)|string)=} compare = `"min-number"`
-         *     If `compare` is type `number` the `maxLength` parameter is set
-         *     to `compare`, and `compare` is set to `"number"`. `compare` is
-         *     the method used to determine the order of the values. It must
-         *     return a number less than or equal to `0` to sort `a` before
-         *     `b` and a number greater than `0` to sort `b` before `a`. If
-         *     `maxLength` is set `compare` decides if a value can stay or
-         *     must go (the `top` value(s) is always cut). The default
+         *     If *compare* is type `"number"` the *maxLength* parameter is
+         *     set to *compare*, and *compare* is set to `"number"`. *compare*
+         *     is the method used to determine the order of the values. It
+         *     must return a number less than or equal to `0` to sort *a*
+         *     before *b* and a number greater than `0` to sort *b* before
+         *     *a*. If *maxLength* is set *compare* decides if a value can
+         *     stay or must go (the top value(s) is always cut). The default
          *     comparators are `"min-number"` which is `a - b`, `"max-number"`
          *     which is `b - a`, `"min-string"` which is `a.localeCompare(b)`,
          *     and `"max-string"` which is `b.localeCompare(a)`.
          * @param {number=} maxLength = `Infinity`
-         *     `maxLength` is the maximum values the heap can hold. It will
-         *     only keep the lowest values within the heap (i.e. the `top` is
+         *     *maxLength* is the maximum values the heap can hold. It will
+         *     only keep the lowest values within the heap (i.e. the top is
          *     cut).
          * @constructor
          */
@@ -124,7 +124,7 @@ var Heap = (function() {
         }
 
         /**
-         * This method gets the current length of the `Heap` instance.
+         * This method gets the current length of the *Heap* instance.
          *
          * @public
          * @export
@@ -135,7 +135,7 @@ var Heap = (function() {
         }
 
         /**
-         * This method gets the maximum length of the `Heap` instance.
+         * This method gets the maximum length of the *Heap* instance.
          *
          * @public
          * @export

@@ -1,6 +1,6 @@
 /**
  * Cedge
- * @file The `Deque` class.
+ * @file The *Deque* class.
  * @version 1.0.0.alpha
  * @see [Cedge](https://github.com/imaginate/cedge)
  *
@@ -28,19 +28,19 @@ var Deque = (function() {
 
     class Deque {
         /**
-         * The `Deque` constructor. This is a double-ended queue. You may
+         * The *Deque* constructor. This is a double-ended queue. You may
          * provide an array of values which it pushes from index zero (i.e.
-         * index zero is the head) to the deque. If the `maxLength` parameter
-         * is defined the length of the deque is limited to `maxLength`. If
+         * index zero is the head) to the deque. If the *maxLength* parameter
+         * is defined the length of the deque is limited to *maxLength*. If
          * limited the deque will purge the tail once the length of the deque
-         * exceeds the `maxLength`.
+         * exceeds the *maxLength*.
          *
          * @public
          * @param {!Array<*>=} vals = `[]`
-         *     If `vals` is type `number` the `maxLength` parameter is set to
-         *     `vals`, and `vals` is set to `[]`.
+         *     If *vals* is type `"number"` the *maxLength* parameter is set
+         *     to *vals*, and *vals* is set to `[]`.
          * @param {number=} maxLength = `Infinity`
-         *     `maxLength` is the maximum values the deque can hold. It will
+         *     *maxLength* is the maximum values the deque can hold. It will
          *     cut the tail before adding a new value when the maximum length
          *     is reached.
          * @constructor
@@ -98,7 +98,7 @@ var Deque = (function() {
         }
 
         /**
-         * This method gets the value for the tail of the `Deque` instance.
+         * This method gets the value for the tail of the *Deque* instance.
          *
          * @public
          * @export
@@ -111,7 +111,7 @@ var Deque = (function() {
         }
 
         /**
-         * This method gets the value for the head of the `Deque` instance.
+         * This method gets the value for the head of the *Deque* instance.
          *
          * @public
          * @export
@@ -124,7 +124,7 @@ var Deque = (function() {
         }
 
         /**
-         * This method gets the current length for the `Deque` instance.
+         * This method gets the current length for the *Deque* instance.
          *
          * @public
          * @export
@@ -135,7 +135,7 @@ var Deque = (function() {
         }
 
         /**
-         * This method gets the maximum length for the `Deque` instance.
+         * This method gets the maximum length for the *Deque* instance.
          *
          * @public
          * @export

@@ -1,6 +1,6 @@
 /**
  * Cedge
- * @file The `Queue` class.
+ * @file The *Queue* class.
  * @version 1.0.0.alpha
  * @see [Cedge](https://github.com/imaginate/cedge)
  *
@@ -27,13 +27,13 @@ var MyQueue = (function() {
 
     class Queue {
         /**
-         * The `Queue` constructor (named `MyQueue` when copying for
+         * The *Queue* constructor (named *MyQueue* when copying for
          * competitive programming use to avoid a name collision with
-         * LeetCode's public `Queue` class). You may provide an array of
+         * LeetCode's public *Queue* class). You may provide an array of
          * values which it pushes from index zero (i.e. index zero is the
-         * head) to the queue. Note that `Queue.prototype.pop` has a time
-         * complexity of O(n). Use `Deque` to get a time complexity of O(1)
-         * for `queue.pop`.
+         * head) to the queue. Note that *Queue.prototype.pop* has a time
+         * complexity of `O(n)`. Use *Deque* to get a time complexity of
+         * `O(1)` for *queue.pop*.
          *
          * @public
          * @param {!Array<*>=} vals = `[]`
@@ -78,7 +78,7 @@ var MyQueue = (function() {
         }
 
         /**
-         * This method gets the value for the tail of the `Queue` instance.
+         * This method gets the value for the tail of the *Queue* instance.
          *
          * @public
          * @export
@@ -91,7 +91,7 @@ var MyQueue = (function() {
         }
 
         /**
-         * This method gets the value for the head of the `Queue` instance.
+         * This method gets the value for the head of the *Queue* instance.
          *
          * @public
          * @export
@@ -104,7 +104,7 @@ var MyQueue = (function() {
         }
 
         /**
-         * This method gets the current length of the `Queue` instance.
+         * This method gets the current length of the *Queue* instance.
          *
          * @public
          * @export
