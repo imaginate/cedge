@@ -22,6 +22,5 @@ jobs:
           git clone https://github.com/imaginate/cedge.git
           cd cedge
           npm install
-          ls -Al
       - name: Run Tests
         run: npm test
