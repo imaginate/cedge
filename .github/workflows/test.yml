@@ -1,0 +1,25 @@
+name: Test
+on:
+  push:
+    branches:
+      - master
+permissions:
+  contents: read
+jobs:
+  run-tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Git, Node.js, & NPM
+        run: |
+          sudo apt update
+          sudo apt install git-all
+          sudo apt install nodejs
+          sudo apt install npm
+      - name: Prepare Repository
+        run: |
+          git clone https://github.com/imaginate/cedge.git
+          cd cedge
+          npm install
+      - name: Run Tests
+        run: npm test
