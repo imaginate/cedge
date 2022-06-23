@@ -18,6 +18,7 @@ jobs:
       - name: Prepare Repository
         run: |
           echo $HOME
+          pwd
           ls -A
           cd ..
           echo parent directory
