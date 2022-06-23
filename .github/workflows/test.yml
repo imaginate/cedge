@@ -17,9 +17,11 @@ jobs:
           sudo apt-get -y install npm
       - name: Prepare Repository
         run: |
+          cd ..
           rm -rf cedge
           git clone https://github.com/imaginate/cedge.git
           cd cedge
           npm install
+          ls -Al
       - name: Run Tests
         run: npm test
