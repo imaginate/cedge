@@ -9,19 +9,19 @@ If desired a distributable for browsers can be added. Send an [email](imagineada
 to ask for a browser distributable.
 
 At present the supported data structures are:
-- [**AVL**](#avlprototypeconstructor)<br/>
+- [**AVL**](https://github.com/imaginate/cedge/blob/master/API.md#avlprototypeconstructor)<br/>
   A self-balancing binary search tree that stores any type of data and allows
   you to provide a custom comparator for non-standard data or a different
   desired outcome. It includes inorder, preorder, and postorder outputs along
   with an includes and amount of verifications.
-- [**Deque**](#dequeprototypeconstructor)<br/>
+- [**Deque**](https://github.com/imaginate/cedge/blob/master/API.md#dequeprototypeconstructor)<br/>
   A double-ended queue that stores any type of data desired and allows you to
   set a limit to the amount of data stored (e.g. ideal for an LRU cache).
-- [**Heap**](#heapprototypeconstructor)<br/>
+- [**Heap**](https://github.com/imaginate/cedge/blob/master/API.md#heapprototypeconstructor)<br/>
   A minimum or maximum priority queue that stores any type of data, allows you
   to use a custom comparator for non-standard data or a different desired
   outcome, and allows you to set a limit to the amount of data stored.
-- [**Queue**](#queueprototypeconstructor)<br/>
+- [**Queue**](https://github.com/imaginate/cedge/blob/master/API.md#queueprototypeconstructor)<br/>
   A queue that stores any type of data. It also includes pop, push, shift, and
   unshift rather than just the standard enqueue and dequeue (note that pop
   runs in O(n) time whereas deque's pop runs in O(1) time).
