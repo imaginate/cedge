@@ -1,6 +1,6 @@
 /**
  * Cedge
- * @file The unit tests for the `Queue` class.
+ * @file The unit tests for the *Queue* class.
  * @version 1.0.0.alpha
  * @see [Cedge](https://github.com/imaginate/cedge)
  *
@@ -22,6 +22,9 @@ suite('Queue(nums)', function() {
     test('this.length()', function() {
         assert(queue.length() === 8);
     });
+    test('this.empty()', function() {
+        assert(queue.empty() === false);
+    });
     test('this.pop()', function() {
         assert(queue.pop() === 8);
     });
@@ -33,6 +36,9 @@ suite('Queue(nums)', function() {
     });
     test('this.length()', function() {
         assert(queue.length() === 7);
+    });
+    test('this.empty()', function() {
+        assert(queue.empty() === false);
     });
     test('this.shift()', function() {
         assert(queue.shift() === 1);
@@ -46,6 +52,9 @@ suite('Queue(nums)', function() {
     test('this.length()', function() {
         assert(queue.length() === 6);
     });
+    test('this.empty()', function() {
+        assert(queue.empty() === false);
+    });
     test('this.push(1)', function() {
         queue.push(1);
     });
@@ -57,6 +66,9 @@ suite('Queue(nums)', function() {
     });
     test('this.length()', function() {
         assert(queue.length() === 7);
+    });
+    test('this.empty()', function() {
+        assert(queue.empty() === false);
     });
     test('this.unshift(8)', function() {
         queue.unshift(8);
@@ -70,10 +82,55 @@ suite('Queue(nums)', function() {
     test('this.length()', function() {
         assert(queue.length() === 8);
     });
+    test('this.empty()', function() {
+        assert(queue.empty() === false);
+    });
 });
 
 suite('Queue()', function() {
     const queue = new Queue();
+    test('this.front()', function() {
+        assert(queue.front() === undefined);
+    });
+    test('this.back()', function() {
+        assert(queue.back() === undefined);
+    });
+    test('this.length()', function() {
+        assert(queue.length() === 0);
+    });
+    test('this.empty()', function() {
+        assert(queue.empty() === true);
+    });
+    test('this.push(1)', function() {
+        queue.push(1);
+    });
+    test('this.front()', function() {
+        assert(queue.front() === 1);
+    });
+    test('this.back()', function() {
+        assert(queue.back() === 1);
+    });
+    test('this.length()', function() {
+        assert(queue.length() === 1);
+    });
+    test('this.empty()', function() {
+        assert(queue.empty() === false);
+    });
+    test('this.shift()', function() {
+        assert(queue.shift() === 1);
+    });
+    test('this.front()', function() {
+        assert(queue.front() === undefined);
+    });
+    test('this.back()', function() {
+        assert(queue.back() === undefined);
+    });
+    test('this.length()', function() {
+        assert(queue.length() === 0);
+    });
+    test('this.empty()', function() {
+        assert(queue.empty() === true);
+    });
     test('this.push(1)', function() {
         queue.push(1);
     });
@@ -91,6 +148,9 @@ suite('Queue()', function() {
     });
     test('this.length()', function() {
         assert(queue.length() === 3);
+    });
+    test('this.empty()', function() {
+        assert(queue.empty() === false);
     });
     test('this.unshift(4)', function() {
         queue.unshift(4);
@@ -110,6 +170,9 @@ suite('Queue()', function() {
     test('this.length()', function() {
         assert(queue.length() === 6);
     });
+    test('this.empty()', function() {
+        assert(queue.empty() === false);
+    });
     test('this.pop()', function() {
         assert(queue.pop() === 3);
     });
@@ -122,6 +185,9 @@ suite('Queue()', function() {
     test('this.length()', function() {
         assert(queue.length() === 5);
     });
+    test('this.empty()', function() {
+        assert(queue.empty() === false);
+    });
     test('this.shift()', function() {
         assert(queue.shift() === 6);
     });
@@ -133,5 +199,8 @@ suite('Queue()', function() {
     });
     test('this.length()', function() {
         assert(queue.length() === 4);
+    });
+    test('this.empty()', function() {
+        assert(queue.empty() === false);
     });
 });
