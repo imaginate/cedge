@@ -111,6 +111,35 @@ var Deque = (function() {
         }
 
         /**
+         * This method creates a new *Deque* instance and copies the entire
+         * existing state to the new instance.
+         *
+         * @public
+         * @export
+         * @return {!Deque}
+         *     The new *Deque* instance with the copied state is returned.
+         */
+        clone() {
+            const deque = new Deque(this._maxLength);
+            if (!this._length) {
+                return deque;
+            }
+            deque._length = this._length;
+            deque._head = new DequeNode(this._head.val);
+            let prev = deque._head;
+            let node = this._head.next;
+            while (node) {
+                const clone = new DequeNode(node.val);
+                clone.prev = prev;
+                prev.next = clone;
+                prev = clone;
+                node = node.next;
+            }
+            deque._tail = prev;
+            return deque;
+        }
+
+        /**
          * This method reports whether the deque is empty.
          *
          * @public
