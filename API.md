@@ -6,6 +6,7 @@ The API for each Cedge class.
 - [AVL.prototype.add](#user-content-avl-prototype-add)
 - [AVL.prototype.count](#user-content-avl-prototype-count)
 - [AVL.prototype.delete](#user-content-avl-prototype-delete)
+- [AVL.prototype.empty](#user-content-avl-prototype-empty)
 - [AVL.prototype.has](#user-content-avl-prototype-has)
 - [AVL.prototype.length](#user-content-avl-prototype-length)
 - [AVL.prototype.inorder](#user-content-avl-prototype-inorder)
@@ -13,6 +14,7 @@ The API for each Cedge class.
 - [AVL.prototype.preorder](#user-content-avl-prototype-preorder)
 - [Deque.prototype.constructor](#user-content-deque-prototype-constructor)
 - [Deque.prototype.back](#user-content-deque-prototype-back)
+- [Deque.prototype.empty](#user-content-deque-prototype-empty)
 - [Deque.prototype.front](#user-content-deque-prototype-front)
 - [Deque.prototype.length](#user-content-deque-prototype-length)
 - [Deque.prototype.maxLength](#user-content-deque-prototype-maxLength)
@@ -21,6 +23,7 @@ The API for each Cedge class.
 - [Deque.prototype.shift](#user-content-deque-prototype-shift)
 - [Deque.prototype.unshift](#user-content-deque-prototype-unshift)
 - [Heap.prototype.constructor](#user-content-heap-prototype-constructor)
+- [Heap.prototype.empty](#user-content-heap-prototype-empty)
 - [Heap.prototype.length](#user-content-heap-prototype-length)
 - [Heap.prototype.maxLength](#user-content-heap-prototype-maxLength)
 - [Heap.prototype.pop](#user-content-heap-prototype-pop)
@@ -28,6 +31,7 @@ The API for each Cedge class.
 - [Heap.prototype.top](#user-content-heap-prototype-top)
 - [Queue.prototype.constructor](#user-content-queue-prototype-constructor)
 - [Queue.prototype.back](#user-content-queue-prototype-back)
+- [Queue.prototype.empty](#user-content-queue-prototype-empty)
 - [Queue.prototype.front](#user-content-queue-prototype-front)
 - [Queue.prototype.length](#user-content-queue-prototype-length)
 - [Queue.prototype.pop](#user-content-queue-prototype-pop)
@@ -101,6 +105,16 @@ This method returns the count of *val* existing within the tree.
 
 ` boolean `<br/>
 The return value indicates whether *val* was found within the tree.
+
+<a name="avl-prototype-empty"></a>
+## AVL.prototype.empty
+
+This method reports whether the tree is empty.
+
+#### Returns
+
+` boolean `<br/>
+If the tree is empty `true` is returned. Otherwise `false` is returned.
 
 <a name="avl-prototype-has"></a>
 ## AVL.prototype.has
@@ -197,6 +211,16 @@ This method gets the value for the tail of the *Deque* instance.
 
 ` * `
 
+<a name="deque-prototype-empty"></a>
+## Deque.prototype.empty
+
+This method reports whether the deque is empty.
+
+#### Returns
+
+` boolean `<br/>
+If the deque is empty `true` is returned. Otherwise `false` is returned.
+
 <a name="deque-prototype-front"></a>
 ## Deque.prototype.front
 
@@ -292,6 +316,16 @@ complexity to `O((n-maxLength)*log(n))`.
   *maxLength* is the maximum values the heap can hold. It will only keep the
   lowest values within the heap (i.e. the top is cut).
 
+<a name="heap-prototype-empty"></a>
+## Heap.prototype.empty
+
+This method reports whether the heap is empty.
+
+#### Returns
+
+` boolean `<br/>
+If the heap is empty `true` is returned. Otherwise `false` is returned.
+
 <a name="heap-prototype-length"></a>
 ## Heap.prototype.length
 
@@ -357,6 +391,16 @@ This method gets the value for the tail of the *Queue* instance.
 #### Returns
 
 ` * `
+
+<a name="queue-prototype-empty"></a>
+## Queue.prototype.empty
+
+This method reports whether the queue is empty.
+
+#### Returns
+
+` boolean `<br/>
+If the queue is empty `true` is returned. Otherwise `false` is returned.
 
 <a name="queue-prototype-front"></a>
 ## Queue.prototype.front
