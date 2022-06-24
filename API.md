@@ -34,6 +34,12 @@ The API for each Cedge class.
 - [Queue.prototype.push](#queueprototypepush)
 - [Queue.prototype.shift](#queueprototypeshift)
 - [Queue.prototype.unshift](#queueprototypeunshift)
+- [Stack.prototype.constructor](#stackprototypeconstructor)
+- [Stack.prototype.empty](#stackprototypeempty)
+- [Stack.prototype.length](#stackprototypelength)
+- [Stack.prototype.pop](#stackprototypepop)
+- [Stack.prototype.push](#stackprototypepush)
+- [Stack.prototype.top](#stackprototypetop)
 
 ## AVL.prototype.constructor
 
@@ -373,4 +379,63 @@ This method gets the current length of the *Queue* instance.
 #### Returns
 
 ` void `
+
+## Stack.prototype.constructor
+
+The *Stack* constructor. You may provide an array of values to initiate the
+*Stack* instance with. If you do provide initial values they are pushed to the
+stack in ascending order (i.e. the last value in the array is the top value).
+
+#### Parameters
+
+- ***vals*** ` !Array<*> ` **optional** default = `[]`
+
+## Stack.prototype.empty
+
+This method reports whether the stack is empty.
+
+#### Returns
+
+` boolean `<br/>
+If the stack is empty `true` is returned. Otherwise `false` is returned.
+
+## Stack.prototype.length
+
+This method gets the current length of the stack.
+
+#### Returns
+
+` number `
+
+## Stack.prototype.pop
+
+This method removes the value at the top of the stack (i.e. the last value
+pushed to the stack) and returns the removed value.
+
+#### Returns
+
+` * `<br/>
+The value at the top of the stack (i.e. the last value pushed to the stack).
+If the stack is empty `undefined` is returned.
+
+## Stack.prototype.push
+
+This method adds a value to the top of the stack.
+
+#### Parameters
+
+- ***val*** ` * `
+
+#### Returns
+
+` void `
+
+## Stack.prototype.top
+
+This method gets the value at the top of the stack (i.e. the last value pushed
+to the stack).
+
+#### Returns
+
+` * `
 

@@ -25,6 +25,10 @@ At present the supported data structures are:
   A queue that stores any type of data. It also includes pop, push, shift, and
   unshift rather than just the standard enqueue and dequeue (note that pop
   runs in O(n) time whereas deque's pop runs in O(1) time).
+- [**Stack**](https://github.com/imaginate/cedge/blob/master/API.md#stackprototypeconstructor)<br/>
+  A stack that stores any type of data. It offers core stack methods like
+  *Stack.prototype.top* and *Stack.prototype.empty* that an *Array*
+  implementation is missing.
 
 ## Node.js
 
