@@ -362,6 +362,19 @@ var AVL = (function() {
         }
 
         /**
+         * This method reports whether the tree is empty.
+         *
+         * @public
+         * @export
+         * @return {boolean}
+         *     If the tree is empty `true` is returned. Otherwise `false` is
+         *     returned.
+         */
+        empty() {
+            return !this._length;
+        }
+
+        /**
          * @public
          * @export
          * @param {*} val
