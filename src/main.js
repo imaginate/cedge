@@ -44,4 +44,10 @@ cedge.Heap = require('./heap.js');
  */
 cedge.Queue = require('./queue.js');
 
+/**
+ * @public
+ * @export
+ */
+cedge.Stack = require('./stack.js');
+
 module.exports = cedge;
