@@ -124,6 +124,21 @@ var Heap = (function() {
         }
 
         /**
+         * This method creates a new *Heap* instance and copies the entire
+         * existing state to the new instance.
+         *
+         * @public
+         * @export
+         * @return {!Heap}
+         *     The new *Heap* instance with the copied state is returned.
+         */
+        clone() {
+            const heap = new Heap(this.compare, this._maxLength);
+            heap._heap = this._heap.slice();
+            return heap;
+        }
+
+        /**
          * This method reports whether the heap is empty.
          *
          * @public
