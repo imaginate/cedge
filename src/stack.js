@@ -37,6 +37,19 @@ var Stack = (function() {
         }
 
         /**
+         * This method creates a new *Stack* instance and copies the entire
+         * existing state to the new instance.
+         *
+         * @public
+         * @export
+         * @return {!Stack}
+         *     The new *Stack* instance with the copied state is returned.
+         */
+        clone() {
+            return new Stack(this._stack);
+        }
+
+        /**
          * This method reports whether the stack is empty.
          *
          * @public
