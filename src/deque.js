@@ -111,6 +111,19 @@ var Deque = (function() {
         }
 
         /**
+         * This method reports whether the deque is empty.
+         *
+         * @public
+         * @export
+         * @return {boolean}
+         *     If the deque is empty `true` is returned. Otherwise `false` is
+         *     returned.
+         */
+        empty() {
+            return !this._length;
+        }
+
+        /**
          * This method gets the value for the head of the *Deque* instance.
          *
          * @public
