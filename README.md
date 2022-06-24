@@ -36,7 +36,7 @@ At present the supported data structures are:
 ## Node.js
 
 ```sh
-npm install cedge
+npm install https://github.com/imaginate/cedge
 ```
 
 ```js
