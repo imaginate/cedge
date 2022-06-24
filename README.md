@@ -45,6 +45,7 @@ const avl = new cedge.AVL(...);
 const deque = new cedge.Deque(...);
 const heap = new cedge.Heap(...);
 const queue = new cedge.Queue(...);
+const stack = new cedge.Stack(...);
 ```
 
 <a name="competitive-programming"></a>
