@@ -91,6 +91,19 @@ var MyQueue = (function() {
         }
 
         /**
+         * This method reports whether the queue is empty.
+         *
+         * @public
+         * @export
+         * @return {boolean}
+         *     If the queue is empty `true` is returned. Otherwise `false` is
+         *     returned.
+         */
+        empty() {
+            return !this._length;
+        }
+
+        /**
          * This method gets the value for the head of the *Queue* instance.
          *
          * @public
