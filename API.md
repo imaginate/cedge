@@ -2,45 +2,46 @@
 
 The API for each Cedge class.
 
-- [AVL.prototype.constructor](#avlprototypeconstructor)
-- [AVL.prototype.add](#avlprototypeadd)
-- [AVL.prototype.count](#avlprototypecount)
-- [AVL.prototype.delete](#avlprototypedelete)
-- [AVL.prototype.has](#avlprototypehas)
-- [AVL.prototype.length](#avlprototypelength)
-- [AVL.prototype.inorder](#avlprototypeinorder)
-- [AVL.prototype.postorder](#avlprototypepostorder)
-- [AVL.prototype.preorder](#avlprototypepreorder)
-- [Deque.prototype.constructor](#dequeprototypeconstructor)
-- [Deque.prototype.back](#dequeprototypeback)
-- [Deque.prototype.front](#dequeprototypefront)
-- [Deque.prototype.length](#dequeprototypelength)
-- [Deque.prototype.maxLength](#dequeprototypemaxLength)
-- [Deque.prototype.pop](#dequeprototypepop)
-- [Deque.prototype.push](#dequeprototypepush)
-- [Deque.prototype.shift](#dequeprototypeshift)
-- [Deque.prototype.unshift](#dequeprototypeunshift)
-- [Heap.prototype.constructor](#heapprototypeconstructor)
-- [Heap.prototype.length](#heapprototypelength)
-- [Heap.prototype.maxLength](#heapprototypemaxLength)
-- [Heap.prototype.pop](#heapprototypepop)
-- [Heap.prototype.push](#heapprototypepush)
-- [Heap.prototype.top](#heapprototypetop)
-- [Queue.prototype.constructor](#queueprototypeconstructor)
-- [Queue.prototype.back](#queueprototypeback)
-- [Queue.prototype.front](#queueprototypefront)
-- [Queue.prototype.length](#queueprototypelength)
-- [Queue.prototype.pop](#queueprototypepop)
-- [Queue.prototype.push](#queueprototypepush)
-- [Queue.prototype.shift](#queueprototypeshift)
-- [Queue.prototype.unshift](#queueprototypeunshift)
-- [Stack.prototype.constructor](#stackprototypeconstructor)
-- [Stack.prototype.empty](#stackprototypeempty)
-- [Stack.prototype.length](#stackprototypelength)
-- [Stack.prototype.pop](#stackprototypepop)
-- [Stack.prototype.push](#stackprototypepush)
-- [Stack.prototype.top](#stackprototypetop)
+- [AVL.prototype.constructor](#user-content-avl-prototype-constructor)
+- [AVL.prototype.add](#user-content-avl-prototype-add)
+- [AVL.prototype.count](#user-content-avl-prototype-count)
+- [AVL.prototype.delete](#user-content-avl-prototype-delete)
+- [AVL.prototype.has](#user-content-avl-prototype-has)
+- [AVL.prototype.length](#user-content-avl-prototype-length)
+- [AVL.prototype.inorder](#user-content-avl-prototype-inorder)
+- [AVL.prototype.postorder](#user-content-avl-prototype-postorder)
+- [AVL.prototype.preorder](#user-content-avl-prototype-preorder)
+- [Deque.prototype.constructor](#user-content-deque-prototype-constructor)
+- [Deque.prototype.back](#user-content-deque-prototype-back)
+- [Deque.prototype.front](#user-content-deque-prototype-front)
+- [Deque.prototype.length](#user-content-deque-prototype-length)
+- [Deque.prototype.maxLength](#user-content-deque-prototype-maxLength)
+- [Deque.prototype.pop](#user-content-deque-prototype-pop)
+- [Deque.prototype.push](#user-content-deque-prototype-push)
+- [Deque.prototype.shift](#user-content-deque-prototype-shift)
+- [Deque.prototype.unshift](#user-content-deque-prototype-unshift)
+- [Heap.prototype.constructor](#user-content-heap-prototype-constructor)
+- [Heap.prototype.length](#user-content-heap-prototype-length)
+- [Heap.prototype.maxLength](#user-content-heap-prototype-maxLength)
+- [Heap.prototype.pop](#user-content-heap-prototype-pop)
+- [Heap.prototype.push](#user-content-heap-prototype-push)
+- [Heap.prototype.top](#user-content-heap-prototype-top)
+- [Queue.prototype.constructor](#user-content-queue-prototype-constructor)
+- [Queue.prototype.back](#user-content-queue-prototype-back)
+- [Queue.prototype.front](#user-content-queue-prototype-front)
+- [Queue.prototype.length](#user-content-queue-prototype-length)
+- [Queue.prototype.pop](#user-content-queue-prototype-pop)
+- [Queue.prototype.push](#user-content-queue-prototype-push)
+- [Queue.prototype.shift](#user-content-queue-prototype-shift)
+- [Queue.prototype.unshift](#user-content-queue-prototype-unshift)
+- [Stack.prototype.constructor](#user-content-stack-prototype-constructor)
+- [Stack.prototype.empty](#user-content-stack-prototype-empty)
+- [Stack.prototype.length](#user-content-stack-prototype-length)
+- [Stack.prototype.pop](#user-content-stack-prototype-pop)
+- [Stack.prototype.push](#user-content-stack-prototype-push)
+- [Stack.prototype.top](#user-content-stack-prototype-top)
 
+<a name="avl-prototype-constructor"></a>
 ## AVL.prototype.constructor
 
 The *AVL* constructor. This is a self-balancing binary search tree. You may
@@ -62,6 +63,7 @@ method.
   before *a*. The default comparators are `"number"` which is `a - b` and
   `"string"` which is `a.localeCompare(b)`.
 
+<a name="avl-prototype-add"></a>
 ## AVL.prototype.add
 
 #### Parameters
@@ -72,6 +74,7 @@ method.
 
 ` void `
 
+<a name="avl-prototype-count"></a>
 ## AVL.prototype.count
 
 This method returns the count of *val* existing within the tree.
@@ -84,6 +87,7 @@ This method returns the count of *val* existing within the tree.
 
 ` number `
 
+<a name="avl-prototype-delete"></a>
 ## AVL.prototype.delete
 
 #### Parameters
@@ -98,6 +102,7 @@ This method returns the count of *val* existing within the tree.
 ` boolean `<br/>
 The return value indicates whether *val* was found within the tree.
 
+<a name="avl-prototype-has"></a>
 ## AVL.prototype.has
 
 #### Parameters
@@ -108,6 +113,7 @@ The return value indicates whether *val* was found within the tree.
 
 ` boolean `
 
+<a name="avl-prototype-length"></a>
 ## AVL.prototype.length
 
 This method gets the current length for the *AVL* instance.
@@ -116,6 +122,7 @@ This method gets the current length for the *AVL* instance.
 
 ` number `
 
+<a name="avl-prototype-inorder"></a>
 ## AVL.prototype.inorder
 
 This method returns an inorder-sorted array of the tree's values.
@@ -131,6 +138,7 @@ This method returns an inorder-sorted array of the tree's values.
 
 ` !Array<*> `
 
+<a name="avl-prototype-postorder"></a>
 ## AVL.prototype.postorder
 
 This method returns a postorder-sorted array of the tree's values.
@@ -146,6 +154,7 @@ This method returns a postorder-sorted array of the tree's values.
 
 ` !Array<*> `
 
+<a name="avl-prototype-preorder"></a>
 ## AVL.prototype.preorder
 
 This method returns a preorder-sorted array of the tree's values.
@@ -161,6 +170,7 @@ This method returns a preorder-sorted array of the tree's values.
 
 ` !Array<*> `
 
+<a name="deque-prototype-constructor"></a>
 ## Deque.prototype.constructor
 
 The *Deque* constructor. This is a double-ended queue. You may provide an
@@ -178,6 +188,7 @@ length of the deque exceeds the *maxLength*.
   *maxLength* is the maximum values the deque can hold. It will cut the tail
   before adding a new value when the maximum length is reached.
 
+<a name="deque-prototype-back"></a>
 ## Deque.prototype.back
 
 This method gets the value for the tail of the *Deque* instance.
@@ -186,6 +197,7 @@ This method gets the value for the tail of the *Deque* instance.
 
 ` * `
 
+<a name="deque-prototype-front"></a>
 ## Deque.prototype.front
 
 This method gets the value for the head of the *Deque* instance.
@@ -194,6 +206,7 @@ This method gets the value for the head of the *Deque* instance.
 
 ` * `
 
+<a name="deque-prototype-length"></a>
 ## Deque.prototype.length
 
 This method gets the current length for the *Deque* instance.
@@ -202,6 +215,7 @@ This method gets the current length for the *Deque* instance.
 
 ` number `
 
+<a name="deque-prototype-maxlength"></a>
 ## Deque.prototype.maxLength
 
 This method gets the maximum length for the *Deque* instance.
@@ -210,12 +224,14 @@ This method gets the maximum length for the *Deque* instance.
 
 ` number `
 
+<a name="deque-prototype-pop"></a>
 ## Deque.prototype.pop
 
 #### Returns
 
 ` * `
 
+<a name="deque-prototype-push"></a>
 ## Deque.prototype.push
 
 #### Parameters
@@ -226,12 +242,14 @@ This method gets the maximum length for the *Deque* instance.
 
 ` void `
 
+<a name="deque-prototype-shift"></a>
 ## Deque.prototype.shift
 
 #### Returns
 
 ` * `
 
+<a name="deque-prototype-unshift"></a>
 ## Deque.prototype.unshift
 
 #### Parameters
@@ -242,6 +260,7 @@ This method gets the maximum length for the *Deque* instance.
 
 ` void `
 
+<a name="heap-prototype-constructor"></a>
 ## Heap.prototype.constructor
 
 The *Heap* constructor. You may provide an unsorted array of values which it
@@ -273,6 +292,7 @@ complexity to `O((n-maxLength)*log(n))`.
   *maxLength* is the maximum values the heap can hold. It will only keep the
   lowest values within the heap (i.e. the top is cut).
 
+<a name="heap-prototype-length"></a>
 ## Heap.prototype.length
 
 This method gets the current length of the *Heap* instance.
@@ -281,6 +301,7 @@ This method gets the current length of the *Heap* instance.
 
 ` number `
 
+<a name="heap-prototype-maxlength"></a>
 ## Heap.prototype.maxLength
 
 This method gets the maximum length of the *Heap* instance.
@@ -289,12 +310,14 @@ This method gets the maximum length of the *Heap* instance.
 
 ` number `
 
+<a name="heap-prototype-pop"></a>
 ## Heap.prototype.pop
 
 #### Returns
 
 ` * `
 
+<a name="heap-prototype-push"></a>
 ## Heap.prototype.push
 
 #### Parameters
@@ -305,12 +328,14 @@ This method gets the maximum length of the *Heap* instance.
 
 ` void `
 
+<a name="heap-prototype-top"></a>
 ## Heap.prototype.top
 
 #### Returns
 
 ` * `
 
+<a name="queue-prototype-constructor"></a>
 ## Queue.prototype.constructor
 
 The *Queue* constructor (named *MyQueue* when copying for competitive
@@ -324,6 +349,7 @@ has a time complexity of `O(n)`. Use *Deque* to get a time complexity of
 
 - ***vals*** ` !Array<*> ` **optional** default = `[]`
 
+<a name="queue-prototype-back"></a>
 ## Queue.prototype.back
 
 This method gets the value for the tail of the *Queue* instance.
@@ -332,6 +358,7 @@ This method gets the value for the tail of the *Queue* instance.
 
 ` * `
 
+<a name="queue-prototype-front"></a>
 ## Queue.prototype.front
 
 This method gets the value for the head of the *Queue* instance.
@@ -340,6 +367,7 @@ This method gets the value for the head of the *Queue* instance.
 
 ` * `
 
+<a name="queue-prototype-length"></a>
 ## Queue.prototype.length
 
 This method gets the current length of the *Queue* instance.
@@ -348,12 +376,14 @@ This method gets the current length of the *Queue* instance.
 
 ` number `
 
+<a name="queue-prototype-pop"></a>
 ## Queue.prototype.pop
 
 #### Returns
 
 ` * `
 
+<a name="queue-prototype-push"></a>
 ## Queue.prototype.push
 
 #### Parameters
@@ -364,12 +394,14 @@ This method gets the current length of the *Queue* instance.
 
 ` void `
 
+<a name="queue-prototype-shift"></a>
 ## Queue.prototype.shift
 
 #### Returns
 
 ` * `
 
+<a name="queue-prototype-unshift"></a>
 ## Queue.prototype.unshift
 
 #### Parameters
@@ -380,6 +412,7 @@ This method gets the current length of the *Queue* instance.
 
 ` void `
 
+<a name="stack-prototype-constructor"></a>
 ## Stack.prototype.constructor
 
 The *Stack* constructor. You may provide an array of values to initiate the
@@ -390,6 +423,7 @@ stack in ascending order (i.e. the last value in the array is the top value).
 
 - ***vals*** ` !Array<*> ` **optional** default = `[]`
 
+<a name="stack-prototype-empty"></a>
 ## Stack.prototype.empty
 
 This method reports whether the stack is empty.
@@ -399,6 +433,7 @@ This method reports whether the stack is empty.
 ` boolean `<br/>
 If the stack is empty `true` is returned. Otherwise `false` is returned.
 
+<a name="stack-prototype-length"></a>
 ## Stack.prototype.length
 
 This method gets the current length of the stack.
@@ -407,6 +442,7 @@ This method gets the current length of the stack.
 
 ` number `
 
+<a name="stack-prototype-pop"></a>
 ## Stack.prototype.pop
 
 This method removes the value at the top of the stack (i.e. the last value
@@ -418,6 +454,7 @@ pushed to the stack) and returns the removed value.
 The value at the top of the stack (i.e. the last value pushed to the stack).
 If the stack is empty `undefined` is returned.
 
+<a name="stack-prototype-push"></a>
 ## Stack.prototype.push
 
 This method adds a value to the top of the stack.
@@ -430,6 +467,7 @@ This method adds a value to the top of the stack.
 
 ` void `
 
+<a name="stack-prototype-top"></a>
 ## Stack.prototype.top
 
 This method gets the value at the top of the stack (i.e. the last value pushed
