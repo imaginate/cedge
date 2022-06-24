@@ -181,6 +181,22 @@ var AVL = (function() {
         }
 
         /**
+         * This method creates a new *AVL* instance and copies the entire
+         * existing state to the new instance.
+         *
+         * @public
+         * @export
+         * @return {!AVL}
+         *     The new *AVL* instance with the copied state is returned.
+         */
+        clone() {
+            const avl = new AVL(this.compare);
+            avl._length = this._length;
+            avl._root = cloneAVLNode(this._root);
+            return avl;
+        }
+
+        /**
          * This method returns the count of *val* existing within the tree.
          *
          * @public
@@ -470,6 +486,24 @@ var AVL = (function() {
             }
             return vals;
         }
+    }
+
+    /**
+     * @private
+     * @param {?AVLNode} node
+     * @param {?AVLNode=} parent = `null`
+     * @return {?AVLNode}
+     */
+    function cloneAVLNode(node, parent = null) {
+        if (!node) {
+            return null;
+        }
+        const clone = new AVLNode(node.val, parent);
+        clone.left = cloneAVLNode(node.left, clone);
+        clone.right = cloneAVLNode(node.right, clone);
+        clone.count = node.count;
+        clone.balance = node.balance;
+        return clone;
     }
 
     /**
