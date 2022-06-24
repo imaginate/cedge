@@ -1,6 +1,6 @@
 /**
  * Cedge
- * @file The unit tests for the `AVL` class.
+ * @file The unit tests for the *AVL* class.
  * @version 1.0.0.alpha
  * @see [Cedge](https://github.com/imaginate/cedge)
  *
@@ -13,6 +13,9 @@ const assert = require('assert');
 
 suite('AVL(nums)', function() {
     const avl = new AVL([1,2,3,4,4,4,5,6,8,9,9,9]);
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
     test('this.length()', function() {
         assert(avl.length() === 12);
     });
@@ -67,6 +70,9 @@ suite('AVL(nums)', function() {
     test('this.delete(0)', function() {
         assert(avl.delete(0) === false);
     });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
     test('this.length()', function() {
         assert(avl.length() === 12);
     });
@@ -109,6 +115,9 @@ suite('AVL(nums)', function() {
     test('this.add(1)', function() {
         avl.add(1);
     });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
     test('this.length()', function() {
         assert(avl.length() === 12);
     });
@@ -144,6 +153,9 @@ suite('AVL(nums)', function() {
     });
     test('this.delete(9)', function() {
         assert(avl.delete(9) === true);
+    });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
     });
     test('this.length()', function() {
         assert(avl.length() === 11);
@@ -181,6 +193,9 @@ suite('AVL(nums)', function() {
     test('this.delete(9, true)', function() {
         assert(avl.delete(9, true) === true);
     });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
     test('this.length()', function() {
         assert(avl.length() === 9);
     });
@@ -216,6 +231,9 @@ suite('AVL(nums)', function() {
     });
     test('this.add(7)', function() {
         avl.add(7);
+    });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
     });
     test('this.length()', function() {
         assert(avl.length() === 10);
@@ -253,6 +271,9 @@ suite('AVL(nums)', function() {
     test('this.delete(4)', function() {
         assert(avl.delete(4) === true);
     });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
     test('this.length()', function() {
         assert(avl.length() === 9);
     });
@@ -288,6 +309,9 @@ suite('AVL(nums)', function() {
     });
     test('this.delete(4, true)', function() {
         assert(avl.delete(4, true) === true);
+    });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
     });
     test('this.length()', function() {
         assert(avl.length() === 7);
@@ -325,6 +349,9 @@ suite('AVL(nums)', function() {
     test('this.add(9)', function() {
         avl.add(9);
     });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
     test('this.length()', function() {
         assert(avl.length() === 8);
     });
@@ -361,6 +388,9 @@ suite('AVL(nums)', function() {
     test('this.add(9)', function() {
         avl.add(9);
     });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
     test('this.length()', function() {
         assert(avl.length() === 9);
     });
@@ -396,6 +426,9 @@ suite('AVL(nums)', function() {
     });
     test('this.add(10)', function() {
         avl.add(10);
+    });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
     });
     test('this.length()', function() {
         assert(avl.length() === 10);
