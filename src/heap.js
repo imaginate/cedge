@@ -124,6 +124,19 @@ var Heap = (function() {
         }
 
         /**
+         * This method reports whether the heap is empty.
+         *
+         * @public
+         * @export
+         * @return {boolean}
+         *     If the heap is empty `true` is returned. Otherwise `false` is
+         *     returned.
+         */
+        empty() {
+            return !this._heap.length;
+        }
+
+        /**
          * This method gets the current length of the *Heap* instance.
          *
          * @public
