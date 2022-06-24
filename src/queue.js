@@ -91,6 +91,34 @@ var MyQueue = (function() {
         }
 
         /**
+         * This method creates a new *Queue* instance and copies the entire
+         * existing state to the new instance.
+         *
+         * @public
+         * @export
+         * @return {!Queue}
+         *     The new *Queue* instance with the copied state is returned.
+         */
+        clone() {
+            const queue = new Queue();
+            if (!this._length) {
+                return queue;
+            }
+            queue._length = this._length;
+            queue._head = new QueueNode(this._head.val);
+            let prev = queue._head;
+            let node = this._head.next;
+            while (node) {
+                const clone = new QueueNode(node.val);
+                prev.next = clone;
+                prev = clone;
+                node = node.next;
+            }
+            queue._tail = prev;
+            return queue;
+        }
+
+        /**
          * This method reports whether the queue is empty.
          *
          * @public
