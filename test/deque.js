@@ -1,6 +1,6 @@
 /**
  * Cedge
- * @file The unit tests for the `Deque` class.
+ * @file The unit tests for the *Deque* class.
  * @version 1.0.0.alpha
  * @see [Cedge](https://github.com/imaginate/cedge)
  *
@@ -25,6 +25,9 @@ suite('Deque(nums)', function() {
     test('this.length()', function() {
         assert(deque.length() === 8);
     });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
+    });
     test('this.pop()', function() {
         assert(deque.pop() === 8);
     });
@@ -39,6 +42,9 @@ suite('Deque(nums)', function() {
     });
     test('this.length()', function() {
         assert(deque.length() === 7);
+    });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
     });
     test('this.shift()', function() {
         assert(deque.shift() === 1);
@@ -55,6 +61,9 @@ suite('Deque(nums)', function() {
     test('this.length()', function() {
         assert(deque.length() === 6);
     });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
+    });
     test('this.push(1)', function() {
         deque.push(1);
     });
@@ -70,6 +79,9 @@ suite('Deque(nums)', function() {
     test('this.length()', function() {
         assert(deque.length() === 7);
     });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
+    });
     test('this.unshift(8)', function() {
         deque.unshift(8);
     });
@@ -84,6 +96,9 @@ suite('Deque(nums)', function() {
     });
     test('this.length()', function() {
         assert(deque.length() === 8);
+    });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
     });
 });
 
@@ -101,6 +116,9 @@ suite('Deque(nums, maxLength)', function() {
     test('this.length()', function() {
         assert(deque.length() === 5);
     });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
+    });
     test('this.pop()', function() {
         assert(deque.pop() === 8);
     });
@@ -115,6 +133,9 @@ suite('Deque(nums, maxLength)', function() {
     });
     test('this.length()', function() {
         assert(deque.length() === 4);
+    });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
     });
     test('this.shift()', function() {
         assert(deque.shift() === 1);
@@ -131,6 +152,9 @@ suite('Deque(nums, maxLength)', function() {
     test('this.length()', function() {
         assert(deque.length() === 3);
     });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
+    });
     test('this.push(1)', function() {
         deque.push(1);
     });
@@ -146,6 +170,9 @@ suite('Deque(nums, maxLength)', function() {
     test('this.length()', function() {
         assert(deque.length() === 4);
     });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
+    });
     test('this.unshift(8)', function() {
         deque.unshift(8);
     });
@@ -160,6 +187,9 @@ suite('Deque(nums, maxLength)', function() {
     });
     test('this.length()', function() {
         assert(deque.length() === 5);
+    });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
     });
     test('this.push(9)', function() {
         deque.push(9);
@@ -179,6 +209,9 @@ suite('Deque(nums, maxLength)', function() {
     test('this.length()', function() {
         assert(deque.length() === 5);
     });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
+    });
     test('this.unshift(11)', function() {
         deque.unshift(11);
     });
@@ -197,10 +230,28 @@ suite('Deque(nums, maxLength)', function() {
     test('this.length()', function() {
         assert(deque.length() === 5);
     });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
+    });
 });
 
 suite('Deque()', function() {
     const deque = new Deque();
+    test('this.front()', function() {
+        assert(deque.front() === undefined);
+    });
+    test('this.back()', function() {
+        assert(deque.back() === undefined);
+    });
+    test('this.maxLength()', function() {
+        assert(deque.maxLength() === Infinity);
+    });
+    test('this.length()', function() {
+        assert(deque.length() === 0);
+    });
+    test('this.empty()', function() {
+        assert(deque.empty() === true);
+    });
     test('this.push(1)', function() {
         deque.push(1);
     });
@@ -221,6 +272,9 @@ suite('Deque()', function() {
     });
     test('this.length()', function() {
         assert(deque.length() === 3);
+    });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
     });
     test('this.unshift(4)', function() {
         deque.unshift(4);
@@ -243,6 +297,9 @@ suite('Deque()', function() {
     test('this.length()', function() {
         assert(deque.length() === 6);
     });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
+    });
     test('this.pop()', function() {
         assert(deque.pop() === 3);
     });
@@ -257,6 +314,9 @@ suite('Deque()', function() {
     });
     test('this.length()', function() {
         assert(deque.length() === 5);
+    });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
     });
     test('this.shift()', function() {
         assert(deque.shift() === 6);
@@ -273,10 +333,28 @@ suite('Deque()', function() {
     test('this.length()', function() {
         assert(deque.length() === 4);
     });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
+    });
 });
 
 suite('Deque(maxLength)', function() {
     const deque = new Deque(4);
+    test('this.front()', function() {
+        assert(deque.front() === undefined);
+    });
+    test('this.back()', function() {
+        assert(deque.back() === undefined);
+    });
+    test('this.maxLength()', function() {
+        assert(deque.maxLength() === 4);
+    });
+    test('this.length()', function() {
+        assert(deque.length() === 0);
+    });
+    test('this.empty()', function() {
+        assert(deque.empty() === true);
+    });
     test('this.push(1)', function() {
         deque.push(1);
     });
@@ -297,6 +375,9 @@ suite('Deque(maxLength)', function() {
     });
     test('this.length()', function() {
         assert(deque.length() === 3);
+    });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
     });
     test('this.unshift(4)', function() {
         deque.unshift(4);
@@ -319,6 +400,9 @@ suite('Deque(maxLength)', function() {
     test('this.length()', function() {
         assert(deque.length() === 4);
     });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
+    });
     test('this.pop()', function() {
         assert(deque.pop() === 1);
     });
@@ -334,6 +418,9 @@ suite('Deque(maxLength)', function() {
     test('this.length()', function() {
         assert(deque.length() === 3);
     });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
+    });
     test('this.shift()', function() {
         assert(deque.shift() === 6);
     });
@@ -348,6 +435,9 @@ suite('Deque(maxLength)', function() {
     });
     test('this.length()', function() {
         assert(deque.length() === 2);
+    });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
     });
     test('this.unshift(7)', function() {
         deque.unshift(7);
@@ -370,6 +460,9 @@ suite('Deque(maxLength)', function() {
     test('this.length()', function() {
         assert(deque.length() === 4);
     });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
+    });
     test('this.push(10)', function() {
         deque.push(10);
     });
@@ -390,5 +483,8 @@ suite('Deque(maxLength)', function() {
     });
     test('this.length()', function() {
         assert(deque.length() === 4);
+    });
+    test('this.empty()', function() {
+        assert(deque.empty() === false);
     });
 });
