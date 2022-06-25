@@ -17,6 +17,7 @@ The API for each Cedge class.
 - Deque
   - [Deque.prototype.constructor](#user-content-deque-prototype-constructor)
   - [Deque.prototype.back](#user-content-deque-prototype-back)
+  - [Deque.prototype.clone](#user-content-deque-prototype-clone)
   - [Deque.prototype.empty](#user-content-deque-prototype-empty)
   - [Deque.prototype.front](#user-content-deque-prototype-front)
   - [Deque.prototype.length](#user-content-deque-prototype-length)
@@ -227,6 +228,17 @@ This method gets the value for the tail of the *Deque* instance.
 #### Returns
 
 ` * `
+
+<a name="deque-prototype-clone"></a>
+## Deque.prototype.clone
+
+This method creates a new *Deque* instance and copies the entire existing
+state to the new instance.
+
+#### Returns
+
+` !Deque `<br/>
+The new *Deque* instance with the copied state is returned.
 
 <a name="deque-prototype-empty"></a>
 ## Deque.prototype.empty
