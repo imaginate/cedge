@@ -85,6 +85,15 @@ suite('Queue(nums)', function() {
     test('this.empty()', function() {
         assert(queue.empty() === false);
     });
+    test('this.clone()', function() {
+        const clone = queue.clone();
+        assert(queue !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof Queue);
+        assert(queue.empty() === clone.empty());
+        assert(queue.length() === clone.length());
+        verifyClonedNode(queue._head, clone._head);
+    });
 });
 
 suite('Queue()', function() {
@@ -203,4 +212,28 @@ suite('Queue()', function() {
     test('this.empty()', function() {
         assert(queue.empty() === false);
     });
+    test('this.clone()', function() {
+        const clone = queue.clone();
+        assert(queue !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof Queue);
+        assert(queue.empty() === clone.empty());
+        assert(queue.length() === clone.length());
+        verifyClonedNode(queue._head, clone._head);
+    });
 });
+
+/**
+ * @private
+ * @param {?DequeNode} node
+ * @param {?DequeNode} clone
+ * @return {void}
+ */
+function verifyClonedNode(node, clone) {
+    if (!node || !clone) {
+        assert(node === clone);
+        return;
+    }
+    assert(node.val === clone.val);
+    verifyClonedNode(node.next, clone.next);
+}
