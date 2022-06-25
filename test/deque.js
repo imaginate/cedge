@@ -100,6 +100,17 @@ suite('Deque(nums)', function() {
     test('this.empty()', function() {
         assert(deque.empty() === false);
     });
+    test('this.clone()', function() {
+        const clone = deque.clone();
+        assert(deque !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof Deque);
+        assert(deque.empty() === clone.empty());
+        assert(deque.length() === clone.length());
+        assert(deque.maxLength() === clone.maxLength());
+        verifyClonedNextNode(deque._head, clone._head);
+        verifyClonedPrevNode(deque._tail, clone._tail);
+    });
 });
 
 suite('Deque(nums, maxLength)', function() {
@@ -233,6 +244,17 @@ suite('Deque(nums, maxLength)', function() {
     test('this.empty()', function() {
         assert(deque.empty() === false);
     });
+    test('this.clone()', function() {
+        const clone = deque.clone();
+        assert(deque !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof Deque);
+        assert(deque.empty() === clone.empty());
+        assert(deque.length() === clone.length());
+        assert(deque.maxLength() === clone.maxLength());
+        verifyClonedNextNode(deque._head, clone._head);
+        verifyClonedPrevNode(deque._tail, clone._tail);
+    });
 });
 
 suite('Deque()', function() {
@@ -335,6 +357,17 @@ suite('Deque()', function() {
     });
     test('this.empty()', function() {
         assert(deque.empty() === false);
+    });
+    test('this.clone()', function() {
+        const clone = deque.clone();
+        assert(deque !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof Deque);
+        assert(deque.empty() === clone.empty());
+        assert(deque.length() === clone.length());
+        assert(deque.maxLength() === clone.maxLength());
+        verifyClonedNextNode(deque._head, clone._head);
+        verifyClonedPrevNode(deque._tail, clone._tail);
     });
 });
 
@@ -487,4 +520,45 @@ suite('Deque(maxLength)', function() {
     test('this.empty()', function() {
         assert(deque.empty() === false);
     });
+    test('this.clone()', function() {
+        const clone = deque.clone();
+        assert(deque !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof Deque);
+        assert(deque.empty() === clone.empty());
+        assert(deque.length() === clone.length());
+        assert(deque.maxLength() === clone.maxLength());
+        verifyClonedNextNode(deque._head, clone._head);
+        verifyClonedPrevNode(deque._tail, clone._tail);
+    });
 });
+
+/**
+ * @private
+ * @param {?DequeNode} node
+ * @param {?DequeNode} clone
+ * @return {void}
+ */
+function verifyClonedNextNode(node, clone) {
+    if (!node || !clone) {
+        assert(node === clone);
+        return;
+    }
+    assert(node.val === clone.val);
+    verifyClonedNextNode(node.next, clone.next);
+}
+
+/**
+ * @private
+ * @param {?DequeNode} node
+ * @param {?DequeNode} clone
+ * @return {void}
+ */
+function verifyClonedPrevNode(node, clone) {
+    if (!node || !clone) {
+        assert(node === clone);
+        return;
+    }
+    assert(node.val === clone.val);
+    verifyClonedPrevNode(node.prev, clone.prev);
+}
