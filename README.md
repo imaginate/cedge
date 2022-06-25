@@ -10,24 +10,24 @@ distributable for browsers can be added. Send an [email](imagineadamsmith@gmail.
 to ask for a browser distributable.
 
 At present the supported data structures are:
-- [**AVL**](https://github.com/imaginate/cedge/blob/master/API.md#user-content-avl-prototype-constructor)<br/>
+- **[AVL](https://github.com/imaginate/cedge/blob/master/API.md#user-content-avl-prototype-constructor)** <br/>
   A self-balancing binary search tree that stores any type of data and allows
   you to provide a custom comparator for non-standard data or a different
   desired outcome. It includes inorder, preorder, and postorder outputs along
   with an includes and amount of verifications.
-- [**Deque**](https://github.com/imaginate/cedge/blob/master/API.md#user-content-deque-prototype-constructor)<br/>
+- **[Deque](https://github.com/imaginate/cedge/blob/master/API.md#user-content-deque-prototype-constructor)** <br/>
   A double-ended queue that stores any type of data desired and allows you to
   set a limit to the amount of data stored (e.g. ideal for an LRU cache).
-- [**Heap**](https://github.com/imaginate/cedge/blob/master/API.md#user-content-heap-prototype-constructor)<br/>
+- **[Heap](https://github.com/imaginate/cedge/blob/master/API.md#user-content-heap-prototype-constructor)** <br/>
   A minimum or maximum priority queue that stores any type of data, allows you
   to use a custom comparator for non-standard data or a different desired
   outcome, and allows you to set a limit to the amount of data stored.
-- [**Queue**](https://github.com/imaginate/cedge/blob/master/API.md#user-content-queue-prototype-constructor)<br/>
+- **[Queue](https://github.com/imaginate/cedge/blob/master/API.md#user-content-queue-prototype-constructor)** <br/>
   A queue that stores any type of data. It also includes *pop*, *push*,
   *shift*, and *unshift* rather than just the standard *enqueue* and *dequeue*
   (note that *Queue.prototype.pop* runs in `O(n)` time whereas
   *Deque.prototype.pop* runs in `O(1)` time).
-- [**Stack**](https://github.com/imaginate/cedge/blob/master/API.md#user-content-stack-prototype-constructor)<br/>
+- **[Stack](https://github.com/imaginate/cedge/blob/master/API.md#user-content-stack-prototype-constructor)** <br/>
   A stack that stores any type of data. It offers core stack methods like
   *Stack.prototype.top* and *Stack.prototype.empty* that an *Array*
   implementation is missing.
@@ -36,7 +36,7 @@ At present the supported data structures are:
 ## Node.js
 
 ```sh
-npm install https://github.com/imaginate/cedge
+npm install cedge
 ```
 
 ```js
