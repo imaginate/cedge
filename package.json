@@ -1,7 +1,7 @@
 {
   "name": "cedge",
   "version": "1.0.0-alpha",
-  "description": "A collection of JavaScript classes designed for competitive programming.",
+  "description": "A collection of major data structures missing from the JavaScript standard library designed for competitive programming but useful for any programming needs.",
   "author": "Adam Smith <imagineadamsmith@gmail.com> (https://github.com/imaginate)",
   "license": "Apache-2.0",
   "main": "src/main.js",
