@@ -5,6 +5,7 @@ The API for each Cedge class.
 - AVL
   - [AVL.prototype.constructor](#user-content-avl-prototype-constructor)
   - [AVL.prototype.add](#user-content-avl-prototype-add)
+  - [AVL.prototype.clone](#user-content-avl-prototype-clone)
   - [AVL.prototype.count](#user-content-avl-prototype-count)
   - [AVL.prototype.delete](#user-content-avl-prototype-delete)
   - [AVL.prototype.empty](#user-content-avl-prototype-empty)
@@ -82,6 +83,17 @@ method.
 #### Returns
 
 ` void `
+
+<a name="avl-prototype-clone"></a>
+## AVL.prototype.clone
+
+This method creates a new *AVL* instance and copies the entire existing state
+to the new instance.
+
+#### Returns
+
+` !AVL `<br/>
+The new *AVL* instance with the copied state is returned.
 
 <a name="avl-prototype-count"></a>
 ## AVL.prototype.count
