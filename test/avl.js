@@ -16,6 +16,9 @@ suite('AVL(nums)', function() {
     test('this.empty()', function() {
         assert(avl.empty() === false);
     });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
     test('this.length()', function() {
         assert(avl.length() === 12);
     });
@@ -463,4 +466,32 @@ suite('AVL(nums)', function() {
         const nums = [5,2,1,3,7,6,9,8,10];
         assert(avl.preorder(false).every((val, i) => val === nums[i]));
     });
+    test('this.clone()', function() {
+        const clone = avl.clone();
+        assert(avl !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof AVL);
+        assert(avl.compare === clone.compare);
+        assert(avl.empty() === clone.empty());
+        assert(avl.length() === clone.length());
+        verifyClonedNode(avl._root, clone._root);
+    });
 });
+
+/**
+ * @private
+ * @param {?AVLNode} node
+ * @param {?AVLNode} clone
+ * @return {void}
+ */
+function verifyClonedNode(node, clone) {
+    if (!node || !clone) {
+        assert(node === clone);
+        return;
+    }
+    assert(node.val === clone.val);
+    assert(node.count === clone.count);
+    assert(node.balance === clone.balance);
+    verifyClonedNode(node.left, clone.left);
+    verifyClonedNode(node.right, clone.right);
+}
