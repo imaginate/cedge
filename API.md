@@ -28,6 +28,7 @@ The API for each Cedge class.
   - [Deque.prototype.unshift](#user-content-deque-prototype-unshift)
 - Heap
   - [Heap.prototype.constructor](#user-content-heap-prototype-constructor)
+  - [Heap.prototype.clone](#user-content-heap-prototype-clone)
   - [Heap.prototype.empty](#user-content-heap-prototype-empty)
   - [Heap.prototype.length](#user-content-heap-prototype-length)
   - [Heap.prototype.maxLength](#user-content-heap-prototype-maxLength)
@@ -344,6 +345,17 @@ complexity to `O((n-maxLength)*log(n))`.
 - ***maxLength*** ` number ` **optional** default = `Infinity`<br/>
   *maxLength* is the maximum values the heap can hold. It will only keep the
   lowest values within the heap (i.e. the top is cut).
+
+<a name="heap-prototype-clone"></a>
+## Heap.prototype.clone
+
+This method creates a new *Heap* instance and copies the entire existing state
+to the new instance.
+
+#### Returns
+
+` !Heap `<br/>
+The new *Heap* instance with the copied state is returned.
 
 <a name="heap-prototype-empty"></a>
 ## Heap.prototype.empty
