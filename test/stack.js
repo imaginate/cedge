@@ -82,6 +82,15 @@ suite('Stack(nums)', function() {
     test('this.empty()', function() {
         assert(stack.empty() === false);
     });
+    test('this.clone()', function() {
+        const clone = stack.clone();
+        assert(stack !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof Stack);
+        assert(stack.empty() === clone.empty());
+        assert(stack.length() === clone.length());
+        assert(stack._stack.every((val, i) => val === clone._stack[i]));
+    });
 });
 
 suite('Stack()', function() {
@@ -190,5 +199,14 @@ suite('Stack()', function() {
     });
     test('this.length()', function() {
         assert(stack.length() === 4);
+    });
+    test('this.clone()', function() {
+        const clone = stack.clone();
+        assert(stack !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof Stack);
+        assert(stack.empty() === clone.empty());
+        assert(stack.length() === clone.length());
+        assert(stack._stack.every((val, i) => val === clone._stack[i]));
     });
 });
