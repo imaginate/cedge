@@ -88,6 +88,17 @@ suite('Heap(nums)', function() {
     test('this.empty()', function() {
         assert(heap.empty() === false);
     });
+    test('this.clone()', function() {
+        const clone = heap.clone();
+        assert(heap !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof Heap);
+        assert(heap.compare === clone.compare);
+        assert(heap.empty() === clone.empty());
+        assert(heap.length() === clone.length());
+        assert(heap.maxLength() === clone.maxLength());
+        assert(heap._heap.every((val, i) => val === clone._heap[i]));
+    });
 });
 
 suite('Heap(nums, maxLength)', function() {
@@ -209,6 +220,17 @@ suite('Heap(nums, maxLength)', function() {
     test('this.empty()', function() {
         assert(heap.empty() === false);
     });
+    test('this.clone()', function() {
+        const clone = heap.clone();
+        assert(heap !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof Heap);
+        assert(heap.compare === clone.compare);
+        assert(heap.empty() === clone.empty());
+        assert(heap.length() === clone.length());
+        assert(heap.maxLength() === clone.maxLength());
+        assert(heap._heap.every((val, i) => val === clone._heap[i]));
+    });
 });
 
 suite('Heap()', function() {
@@ -281,6 +303,17 @@ suite('Heap()', function() {
     });
     test('this.top()', function() {
         assert(heap.top() === 1);
+    });
+    test('this.clone()', function() {
+        const clone = heap.clone();
+        assert(heap !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof Heap);
+        assert(heap.compare === clone.compare);
+        assert(heap.empty() === clone.empty());
+        assert(heap.length() === clone.length());
+        assert(heap.maxLength() === clone.maxLength());
+        assert(heap._heap.every((val, i) => val === clone._heap[i]));
     });
 });
 
@@ -384,5 +417,16 @@ suite('Heap(maxLength)', function() {
     });
     test('this.top()', function() {
         assert(heap.top() === 4);
+    });
+    test('this.clone()', function() {
+        const clone = heap.clone();
+        assert(heap !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof Heap);
+        assert(heap.compare === clone.compare);
+        assert(heap.empty() === clone.empty());
+        assert(heap.length() === clone.length());
+        assert(heap.maxLength() === clone.maxLength());
+        assert(heap._heap.every((val, i) => val === clone._heap[i]));
     });
 });
