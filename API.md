@@ -48,6 +48,7 @@ The API for each Cedge class.
   - [Queue.prototype.unshift](#user-content-queue-prototype-unshift)
 - Stack
   - [Stack.prototype.constructor](#user-content-stack-prototype-constructor)
+  - [Stack.prototype.clone](#user-content-stack-prototype-clone)
   - [Stack.prototype.empty](#user-content-stack-prototype-empty)
   - [Stack.prototype.length](#user-content-stack-prototype-length)
   - [Stack.prototype.pop](#user-content-stack-prototype-pop)
@@ -519,6 +520,17 @@ stack in ascending order (i.e. the last value in the array is the top value).
 #### Parameters
 
 - ***vals*** ` !Array<*> ` **optional** default = `[]`
+
+<a name="stack-prototype-clone"></a>
+## Stack.prototype.clone
+
+This method creates a new *Stack* instance and copies the entire existing
+state to the new instance.
+
+#### Returns
+
+` !Stack `<br/>
+The new *Stack* instance with the copied state is returned.
 
 <a name="stack-prototype-empty"></a>
 ## Stack.prototype.empty
