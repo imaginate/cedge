@@ -23,6 +23,7 @@ $RECYCLE.BIN/
 .hg
 .lock-wscript
 .LSOverride
+.nyc_output
 .sass-cache
 .Spotlight-V100
 .Trashes

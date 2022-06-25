@@ -30,6 +30,7 @@
 .sass-cache
 
 .dummy/
+.nyc_output/
 
 $RECYCLE.BIN/
 CVS/
