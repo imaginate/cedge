@@ -38,6 +38,7 @@ The API for each Cedge class.
 - Queue
   - [Queue.prototype.constructor](#user-content-queue-prototype-constructor)
   - [Queue.prototype.back](#user-content-queue-prototype-back)
+  - [Queue.prototype.clone](#user-content-queue-prototype-clone)
   - [Queue.prototype.empty](#user-content-queue-prototype-empty)
   - [Queue.prototype.front](#user-content-queue-prototype-front)
   - [Queue.prototype.length](#user-content-queue-prototype-length)
@@ -432,6 +433,17 @@ This method gets the value for the tail of the *Queue* instance.
 #### Returns
 
 ` * `
+
+<a name="queue-prototype-clone"></a>
+## Queue.prototype.clone
+
+This method creates a new *Queue* instance and copies the entire existing
+state to the new instance.
+
+#### Returns
+
+` !Queue `<br/>
+The new *Queue* instance with the copied state is returned.
 
 <a name="queue-prototype-empty"></a>
 ## Queue.prototype.empty
