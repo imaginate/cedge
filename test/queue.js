@@ -98,6 +98,81 @@ suite('Queue(nums)', function() {
 
 suite('Queue()', function() {
     const queue = new Queue();
+    test('this.clone()', function() {
+        const clone = queue.clone();
+        assert(queue !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof Queue);
+        assert(queue.empty() === clone.empty());
+        assert(queue.length() === clone.length());
+        verifyClonedNode(queue._head, clone._head);
+    });
+    test('this.pop()', function() {
+        assert(queue.pop() === undefined);
+    });
+    test('this.shift()', function() {
+        assert(queue.shift() === undefined);
+    });
+    test('this.front()', function() {
+        assert(queue.front() === undefined);
+    });
+    test('this.back()', function() {
+        assert(queue.back() === undefined);
+    });
+    test('this.length()', function() {
+        assert(queue.length() === 0);
+    });
+    test('this.empty()', function() {
+        assert(queue.empty() === true);
+    });
+    test('this.push(1)', function() {
+        queue.push(1);
+    });
+    test('this.front()', function() {
+        assert(queue.front() === 1);
+    });
+    test('this.back()', function() {
+        assert(queue.back() === 1);
+    });
+    test('this.length()', function() {
+        assert(queue.length() === 1);
+    });
+    test('this.empty()', function() {
+        assert(queue.empty() === false);
+    });
+    test('this.pop()', function() {
+        assert(queue.pop() === 1);
+    });
+    test('this.front()', function() {
+        assert(queue.front() === undefined);
+    });
+    test('this.back()', function() {
+        assert(queue.back() === undefined);
+    });
+    test('this.length()', function() {
+        assert(queue.length() === 0);
+    });
+    test('this.empty()', function() {
+        assert(queue.empty() === true);
+    });
+    test('this.unshift(1)', function() {
+        queue.unshift(1);
+    });
+    test('this.front()', function() {
+        assert(queue.front() === 1);
+    });
+    test('this.back()', function() {
+        assert(queue.back() === 1);
+    });
+    test('this.length()', function() {
+        assert(queue.length() === 1);
+    });
+    test('this.empty()', function() {
+        assert(queue.empty() === false);
+    });
+    test('this.shift()', function() {
+        assert(queue.shift() === 1);
+    });
     test('this.front()', function() {
         assert(queue.front() === undefined);
     });
