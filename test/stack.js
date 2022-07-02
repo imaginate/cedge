@@ -95,6 +95,9 @@ suite('Stack(nums)', function() {
 
 suite('Stack()', function() {
     const stack = new Stack();
+    test('this.pop()', function() {
+        assert(stack.pop() === undefined);
+    });
     test('this.top()', function() {
         assert(stack.top() === undefined);
     });
