@@ -12,7 +12,10 @@ const Queue = require('../src/queue.js');
 const assert = require('assert');
 
 suite('Queue(nums)', function() {
-    const queue = new Queue([1,2,3,4,5,6,7,8]);
+    let queue;
+    test('new Queue(nums)', function() {
+        queue = new Queue([1,2,3,4,5,6,7,8]);
+    });
     test('this.front()', function() {
         assert(queue.front() === 1);
     });
@@ -97,7 +100,10 @@ suite('Queue(nums)', function() {
 });
 
 suite('Queue()', function() {
-    const queue = new Queue();
+    let queue;
+    test('new Queue(nums)', function() {
+        queue = new Queue();
+    });
     test('this.clone()', function() {
         const clone = queue.clone();
         assert(queue !== clone);
