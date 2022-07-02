@@ -12,7 +12,10 @@ const Stack = require('../src/stack.js');
 const assert = require('assert');
 
 suite('Stack(nums)', function() {
-    const stack = new Stack([1,2,3,4,5,6,7,8]);
+    let stack;
+    test('new Stack(nums)', function() {
+        stack = new Stack([1,2,3,4,5,6,7,8]);
+    });
     test('this.top()', function() {
         assert(stack.top() === 8);
     });
@@ -94,7 +97,10 @@ suite('Stack(nums)', function() {
 });
 
 suite('Stack()', function() {
-    const stack = new Stack();
+    let stack;
+    test('new Stack(nums)', function() {
+        stack = new Stack();
+    });
     test('this.pop()', function() {
         assert(stack.pop() === undefined);
     });
