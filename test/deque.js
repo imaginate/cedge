@@ -1,7 +1,7 @@
 /**
  * Cedge
  * @file The unit tests for the *Deque* class.
- * @version 1.0.0.alpha
+ * @version 1.0.0-alpha.2
  * @see [Cedge](https://github.com/imaginate/cedge)
  *
  * @author Adam Smith <imagineadamsmith@gmail.com> (https://github.com/imaginate)
