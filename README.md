@@ -1,12 +1,12 @@
 # Cedge ![tests outcome](https://github.com/imaginate/cedge/actions/workflows/test.yml/badge.svg) ![coverage](https://img.shields.io/badge/coverage-91%25-brightgreen.svg?style=flat) ![version](https://img.shields.io/badge/version-1.0.0--beta-brightgreen.svg?style=flat)
 
 Cedge is a collection of major data structures missing from the standard
-JavaScript library designed for competitive programming. The name Cedge is a
-portmanteau of the words competitive and edge, and as it implies Cedge will
-give you a competitive edge for whatever JavaScript programming you are doing.
-Cedge is available for [Node.js](#user-content-node-js) and
-[competitive programming](#user-content-competitive-programming). If desired a
-distributable for browsers can be added. Send an [email](mailto:imagineadamsmith@gmail.com)
+JavaScript library that are designed for competitive programming. The name
+Cedge is a portmanteau of the words *competitive* and *edge*, and as it
+implies Cedge will give you a competitive edge for whatever JavaScript
+programming you are doing. Cedge is available for [Node.js](#user-content-node-js)
+and [competitive programming](#user-content-competitive-programming). If
+desired a distributable for browsers can be added. Send an [email](mailto:imagineadamsmith@gmail.com)
 to ask for a browser distributable.
 
 At present the supported data structures are:
