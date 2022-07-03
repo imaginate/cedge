@@ -611,6 +611,482 @@ suite('AVL(nums)', function() {
     });
 });
 
+suite('AVL(nums, "number")', function() {
+    let avl;
+    test('new AVL(nums, "number")', function() {
+        avl = new AVL([3,2,8,1,6,9,5,7,10], 'number');
+    });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
+    test('this.length()', function() {
+        assert(avl.length() === 9);
+    });
+    test('this.has(0)', function() {
+        assert(avl.has(0) === false);
+    });
+    test('this.count(0)', function() {
+        assert(avl.count(0) === 0);
+    });
+    test('this.has(1)', function() {
+        assert(avl.has(1) === true);
+    });
+    test('this.count(1)', function() {
+        assert(avl.count(1) === 1);
+    });
+    test('this.inorder()', function() {
+        const nums = [1,2,3,5,6,7,8,9,10];
+        const result = avl.inorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.inorder(false)', function() {
+        const nums = [1,2,3,5,6,7,8,9,10];
+        const result = avl.inorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder()', function() {
+        const nums = [1,2,5,7,6,10,9,8,3];
+        const result = avl.postorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder(false)', function() {
+        const nums = [1,2,5,7,6,10,9,8,3];
+        const result = avl.postorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder()', function() {
+        const nums = [3,2,1,8,6,5,7,9,10];
+        const result = avl.preorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder(false)', function() {
+        const nums = [3,2,1,8,6,5,7,9,10];
+        const result = avl.preorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.add(4)', function() {
+        avl.add(4);
+    });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
+    test('this.length()', function() {
+        assert(avl.length() === 10);
+    });
+    test('this.has(4)', function() {
+        assert(avl.has(4) === true);
+    });
+    test('this.count(4)', function() {
+        assert(avl.count(4) === 1);
+    });
+    test('this.inorder()', function() {
+        const nums = [1,2,3,4,5,6,7,8,9,10];
+        const result = avl.inorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.inorder(false)', function() {
+        const nums = [1,2,3,4,5,6,7,8,9,10];
+        const result = avl.inorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder()', function() {
+        const nums = [1,2,4,5,3,7,10,9,8,6];
+        const result = avl.postorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder(false)', function() {
+        const nums = [1,2,4,5,3,7,10,9,8,6];
+        const result = avl.postorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder()', function() {
+        const nums = [6,3,2,1,5,4,8,7,9,10];
+        const result = avl.preorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder(false)', function() {
+        const nums = [6,3,2,1,5,4,8,7,9,10];
+        const result = avl.preorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.clone()', function() {
+        const clone = avl.clone();
+        assert(avl !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof AVL);
+        assert(avl.compare === clone.compare);
+        assert(avl.empty() === clone.empty());
+        assert(avl.length() === clone.length());
+        verifyClonedNode(avl._root, clone._root);
+    });
+    test('new AVL(nums, "number")', function() {
+        avl = new AVL([8,3,9,2,5,10,1,4,6], 'number');
+    });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
+    test('this.length()', function() {
+        assert(avl.length() === 9);
+    });
+    test('this.has(0)', function() {
+        assert(avl.has(0) === false);
+    });
+    test('this.count(0)', function() {
+        assert(avl.count(0) === 0);
+    });
+    test('this.has(1)', function() {
+        assert(avl.has(1) === true);
+    });
+    test('this.count(1)', function() {
+        assert(avl.count(1) === 1);
+    });
+    test('this.inorder()', function() {
+        const nums = [1,2,3,4,5,6,8,9,10];
+        const result = avl.inorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.inorder(false)', function() {
+        const nums = [1,2,3,4,5,6,8,9,10];
+        const result = avl.inorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder()', function() {
+        const nums = [1,2,4,6,5,3,10,9,8];
+        const result = avl.postorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder(false)', function() {
+        const nums = [1,2,4,6,5,3,10,9,8];
+        const result = avl.postorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder()', function() {
+        const nums = [8,3,2,1,5,4,6,9,10];
+        const result = avl.preorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder(false)', function() {
+        const nums = [8,3,2,1,5,4,6,9,10];
+        const result = avl.preorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.add(7)', function() {
+        avl.add(7);
+    });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
+    test('this.length()', function() {
+        assert(avl.length() === 10);
+    });
+    test('this.has(7)', function() {
+        assert(avl.has(7) === true);
+    });
+    test('this.count(7)', function() {
+        assert(avl.count(7) === 1);
+    });
+    test('this.inorder()', function() {
+        const nums = [1,2,3,4,5,6,7,8,9,10];
+        const result = avl.inorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.inorder(false)', function() {
+        const nums = [1,2,3,4,5,6,7,8,9,10];
+        const result = avl.inorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder()', function() {
+        const nums = [1,2,4,3,7,6,10,9,8,5];
+        const result = avl.postorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder(false)', function() {
+        const nums = [1,2,4,3,7,6,10,9,8,5];
+        const result = avl.postorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder()', function() {
+        const nums = [5,3,2,1,4,8,6,7,9,10];
+        const result = avl.preorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder(false)', function() {
+        const nums = [5,3,2,1,4,8,6,7,9,10];
+        const result = avl.preorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.clone()', function() {
+        const clone = avl.clone();
+        assert(avl !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof AVL);
+        assert(avl.compare === clone.compare);
+        assert(avl.empty() === clone.empty());
+        assert(avl.length() === clone.length());
+        verifyClonedNode(avl._root, clone._root);
+    });
+    test('new AVL(nums, "number")', function() {
+        avl = new AVL([5,3,10,2,4,8,11,1,7,9,12,6], 'number');
+    });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
+    test('this.length()', function() {
+        assert(avl.length() === 12);
+    });
+    test('this.has(0)', function() {
+        assert(avl.has(0) === false);
+    });
+    test('this.count(0)', function() {
+        assert(avl.count(0) === 0);
+    });
+    test('this.has(1)', function() {
+        assert(avl.has(1) === true);
+    });
+    test('this.count(1)', function() {
+        assert(avl.count(1) === 1);
+    });
+    test('this.inorder()', function() {
+        const nums = [1,2,3,4,5,6,7,8,9,10,11,12];
+        const result = avl.inorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.inorder(false)', function() {
+        const nums = [1,2,3,4,5,6,7,8,9,10,11,12];
+        const result = avl.inorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder()', function() {
+        const nums = [1,2,4,3,6,7,9,8,12,11,10,5];
+        const result = avl.postorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder(false)', function() {
+        const nums = [1,2,4,3,6,7,9,8,12,11,10,5];
+        const result = avl.postorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder()', function() {
+        const nums = [5,3,2,1,4,10,8,7,6,9,11,12];
+        const result = avl.preorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder(false)', function() {
+        const nums = [5,3,2,1,4,10,8,7,6,9,11,12];
+        const result = avl.preorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.delete(1)', function() {
+        assert(avl.delete(1) === true);
+    });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
+    test('this.length()', function() {
+        assert(avl.length() === 11);
+    });
+    test('this.has(1)', function() {
+        assert(avl.has() === false);
+    });
+    test('this.count(1)', function() {
+        assert(avl.count() === 0);
+    });
+    test('this.inorder()', function() {
+        const nums = [2,3,4,5,6,7,8,9,10,11,12];
+        const result = avl.inorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.inorder(false)', function() {
+        const nums = [2,3,4,5,6,7,8,9,10,11,12];
+        const result = avl.inorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder()', function() {
+        const nums = [2,4,3,6,7,5,9,12,11,10,8];
+        const result = avl.postorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder(false)', function() {
+        const nums = [2,4,3,6,7,5,9,12,11,10,8];
+        const result = avl.postorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder()', function() {
+        const nums = [8,5,3,2,4,7,6,10,9,11,12];
+        const result = avl.preorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder(false)', function() {
+        const nums = [8,5,3,2,4,7,6,10,9,11,12];
+        const result = avl.preorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.clone()', function() {
+        const clone = avl.clone();
+        assert(avl !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof AVL);
+        assert(avl.compare === clone.compare);
+        assert(avl.empty() === clone.empty());
+        assert(avl.length() === clone.length());
+        verifyClonedNode(avl._root, clone._root);
+    });
+    test('new AVL(nums, "number")', function() {
+        avl = new AVL([8,3,10,2,5,9,11,1,4,6,12,7], 'number');
+    });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
+    test('this.length()', function() {
+        assert(avl.length() === 12);
+    });
+    test('this.has(0)', function() {
+        assert(avl.has(0) === false);
+    });
+    test('this.count(0)', function() {
+        assert(avl.count(0) === 0);
+    });
+    test('this.has(1)', function() {
+        assert(avl.has(1) === true);
+    });
+    test('this.count(1)', function() {
+        assert(avl.count(1) === 1);
+    });
+    test('this.inorder()', function() {
+        const nums = [1,2,3,4,5,6,7,8,9,10,11,12];
+        const result = avl.inorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.inorder(false)', function() {
+        const nums = [1,2,3,4,5,6,7,8,9,10,11,12];
+        const result = avl.inorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder()', function() {
+        const nums = [1,2,4,7,6,5,3,9,12,11,10,8];
+        const result = avl.postorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder(false)', function() {
+        const nums = [1,2,4,7,6,5,3,9,12,11,10,8];
+        const result = avl.postorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder()', function() {
+        const nums = [8,3,2,1,5,4,6,7,10,9,11,12];
+        const result = avl.preorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder(false)', function() {
+        const nums = [8,3,2,1,5,4,6,7,10,9,11,12];
+        const result = avl.preorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.delete(12)', function() {
+        assert(avl.delete(12) === true);
+    });
+    test('this.empty()', function() {
+        assert(avl.empty() === false);
+    });
+    test('this.length()', function() {
+        assert(avl.length() === 11);
+    });
+    test('this.has(12)', function() {
+        assert(avl.has() === false);
+    });
+    test('this.count(12)', function() {
+        assert(avl.count() === 0);
+    });
+    test('this.inorder()', function() {
+        const nums = [1,2,3,4,5,6,7,8,9,10,11];
+        const result = avl.inorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.inorder(false)', function() {
+        const nums = [1,2,3,4,5,6,7,8,9,10,11];
+        const result = avl.inorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder()', function() {
+        const nums = [1,2,4,3,7,6,9,11,10,8,5];
+        const result = avl.postorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.postorder(false)', function() {
+        const nums = [1,2,4,3,7,6,9,11,10,8,5];
+        const result = avl.postorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder()', function() {
+        const nums = [5,3,2,1,4,8,6,7,10,9,11];
+        const result = avl.preorder();
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.preorder(false)', function() {
+        const nums = [5,3,2,1,4,8,6,7,10,9,11];
+        const result = avl.preorder(false);
+        assert(result.length === nums.length);
+        assert(result.every((val, i) => val === nums[i]));
+    });
+    test('this.clone()', function() {
+        const clone = avl.clone();
+        assert(avl !== clone);
+        assert(typeof clone === 'object');
+        assert(clone instanceof AVL);
+        assert(avl.compare === clone.compare);
+        assert(avl.empty() === clone.empty());
+        assert(avl.length() === clone.length());
+        verifyClonedNode(avl._root, clone._root);
+    });
+});
+
 suite('AVL("string")', function() {
     let avl;
     test('new AVL("string")', function() {
@@ -625,6 +1101,9 @@ suite('AVL("string")', function() {
         assert(avl.empty() === clone.empty());
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
+    });
+    test('this.delete("a")', function() {
+        assert(avl.delete('a') === false);
     });
     test('this.empty()', function() {
         assert(avl.empty() === true);
