@@ -266,6 +266,10 @@ var AVL = (function() {
             if (!node) {
                 return false;
             }
+            if (!this._length) {
+                this._root = null;
+                return true;
+            }
             if (node.balance < 0) {
                 const prev = findPrevNode(node);
                 node.val = prev.val;
