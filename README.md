@@ -6,7 +6,7 @@ portmanteau of the words competitive and edge, and as it implies Cedge will
 give you a competitive edge for whatever JavaScript programming you are doing.
 Cedge is available for [Node.js](#user-content-node-js) and
 [competitive programming](#user-content-competitive-programming). If desired a
-distributable for browsers can be added. Send an [email](imagineadamsmith@gmail.com)
+distributable for browsers can be added. Send an [email](mailto:imagineadamsmith@gmail.com)
 to ask for a browser distributable.
 
 At present the supported data structures are:
@@ -107,5 +107,5 @@ recommended that you contact the project owner, Adam, to ask if a potential
 new feature would be accepted before you go through the effort to develop it.
 
 - [Issue/Suggestion](https://github.com/imaginate/cedge/issues)
-- [Contact](imagineadamsmith@gmail.com)
+- [Contact](mailto:imagineadamsmith@gmail.com)
 
