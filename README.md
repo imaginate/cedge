@@ -1,4 +1,4 @@
-# Cedge ![tests outcome](https://github.com/imaginate/cedge/actions/workflows/test.yml/badge.svg) ![coverage](https://img.shields.io/badge/coverage-91%25-brightgreen.svg?style=flat) ![version](https://img.shields.io/badge/version-1.0.0--beta-brightgreen.svg?style=flat)
+# Cedge ![tests outcome](https://github.com/imaginate/cedge/actions/workflows/test.yml/badge.svg) ![coverage](https://img.shields.io/badge/coverage-96%25-brightgreen.svg?style=flat) ![version](https://img.shields.io/badge/version-1.0.0--beta-brightgreen.svg?style=flat)
 
 Cedge is a collection of major data structures missing from the standard
 JavaScript library that are designed for competitive programming. The name
