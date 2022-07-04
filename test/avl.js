@@ -14,7 +14,7 @@ const isArray = Array.isArray;
 
 suite('AVL(nums)', function() {
     let avl;
-    test('new AVL(nums)', function() {
+    test('new AVL([1,2,3,4,4,4,5,6,8,9,9,9])', function() {
         avl = new AVL([1,2,3,4,4,4,5,6,8,9,9,9]);
     });
     test('this.empty()', function() {
@@ -613,7 +613,7 @@ suite('AVL(nums)', function() {
 
 suite('AVL(nums, "number")', function() {
     let avl;
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([3,2,8,1,6,9,5,7,10], "number")', function() {
         avl = new AVL([3,2,8,1,6,9,5,7,10], 'number');
     });
     test('this.empty()', function() {
@@ -731,7 +731,7 @@ suite('AVL(nums, "number")', function() {
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
     });
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([8,3,9,2,5,10,1,4,6], "number")', function() {
         avl = new AVL([8,3,9,2,5,10,1,4,6], 'number');
     });
     test('this.empty()', function() {
@@ -849,7 +849,7 @@ suite('AVL(nums, "number")', function() {
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
     });
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([3,2,8,1,5,9,4,7,10], "number")', function() {
         avl = new AVL([3,2,8,1,5,9,4,7,10], 'number');
     });
     test('this.empty()', function() {
@@ -967,7 +967,7 @@ suite('AVL(nums, "number")', function() {
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
     });
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([8,3,9,2,6,10,1,5,7], "number")', function() {
         avl = new AVL([8,3,9,2,6,10,1,5,7], 'number');
     });
     test('this.empty()', function() {
@@ -1085,7 +1085,7 @@ suite('AVL(nums, "number")', function() {
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
     });
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([3,2,4,1], "number")', function() {
         avl = new AVL([3,2,4,1], 'number');
     });
     test('this.empty()', function() {
@@ -1203,7 +1203,7 @@ suite('AVL(nums, "number")', function() {
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
     });
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([2,1,3,4], "number")', function() {
         avl = new AVL([2,1,3,4], 'number');
     });
     test('this.empty()', function() {
@@ -1321,7 +1321,7 @@ suite('AVL(nums, "number")', function() {
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
     });
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([2,1,4,3,5], "number")', function() {
         avl = new AVL([2,1,4,3,5], 'number');
     });
     test('this.empty()', function() {
@@ -1439,7 +1439,7 @@ suite('AVL(nums, "number")', function() {
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
     });
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([4,2,5,1,3], "number")', function() {
         avl = new AVL([4,2,5,1,3], 'number');
     });
     test('this.empty()', function() {
@@ -1557,7 +1557,7 @@ suite('AVL(nums, "number")', function() {
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
     });
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([5,3,10,2,4,8,11,1,7,9,12], "number")', function() {
         avl = new AVL([5,3,10,2,4,8,11,1,7,9,12], 'number');
     });
     test('this.empty()', function() {
@@ -1675,7 +1675,7 @@ suite('AVL(nums, "number")', function() {
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
     });
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([8,3,10,2,5,9,11,1,4,6,12], "number")', function() {
         avl = new AVL([8,3,10,2,5,9,11,1,4,6,12], 'number');
     });
     test('this.empty()', function() {
@@ -1793,7 +1793,7 @@ suite('AVL(nums, "number")', function() {
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
     });
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([5,3,10,2,4,8,11,1,7,9,12,6], "number")', function() {
         avl = new AVL([5,3,10,2,4,8,11,1,7,9,12,6], 'number');
     });
     test('this.empty()', function() {
@@ -1911,7 +1911,7 @@ suite('AVL(nums, "number")', function() {
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
     });
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([8,3,10,2,5,9,11,1,4,6,12,7], "number")', function() {
         avl = new AVL([8,3,10,2,5,9,11,1,4,6,12,7], 'number');
     });
     test('this.empty()', function() {
@@ -2029,7 +2029,7 @@ suite('AVL(nums, "number")', function() {
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
     });
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([5,3,10,2,4,8,12,1,7,9,11,13,6,14], "number")', function() {
         avl = new AVL([5,3,10,2,4,8,12,1,7,9,11,13,6,14], 'number');
     });
     test('this.empty()', function() {
@@ -2147,7 +2147,7 @@ suite('AVL(nums, "number")', function() {
         assert(avl.length() === clone.length());
         verifyClonedNode(avl._root, clone._root);
     });
-    test('new AVL(nums, "number")', function() {
+    test('new AVL([10,5,12,3,7,11,13,2,4,6,8,14,1,9], "number")', function() {
         avl = new AVL([10,5,12,3,7,11,13,2,4,6,8,14,1,9], 'number');
     });
     test('this.empty()', function() {
