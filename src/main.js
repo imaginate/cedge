@@ -5,7 +5,7 @@
  *     methods like `Object.prototype.toString` are not available and the
  *     `Object.prototype.hasOwnProperty` method is not needed because the
  *     object has no inherited prototypical properties to filter out).
- * @version 1.0.0-beta
+ * @version 1.0.0
  * @see [Cedge](https://github.com/imaginate/cedge)
  *
  * @author Adam Smith <imagineadamsmith@gmail.com> (https://github.com/imaginate)
