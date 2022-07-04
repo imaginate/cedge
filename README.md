@@ -32,6 +32,10 @@ At present the supported data structures are:
   *Stack.prototype.top* and *Stack.prototype.empty* that an *Array*
   implementation is missing.
 
+Currently the following data structures are scheduled for version 2.0.0:
+- **Trie**
+- **RedBlack**
+
 <a name="node-js"></a>
 ## Node.js
 
