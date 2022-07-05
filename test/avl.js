@@ -29,11 +29,26 @@ suite('AVL(nums)', function() {
     test('this.count(0)', function() {
         assert(avl.count(0) === 0);
     });
+    test('this.next(0)', function() {
+        assert(avl.next(0) === 1);
+    });
     test('this.has(1)', function() {
         assert(avl.has(1) === true);
     });
     test('this.count(1)', function() {
         assert(avl.count(1) === 1);
+    });
+    test('this.next(1)', function() {
+        assert(avl.next(1) === 2);
+    });
+    test('this.has(3)', function() {
+        assert(avl.has(3) === true);
+    });
+    test('this.count(3)', function() {
+        assert(avl.count(3) === 1);
+    });
+    test('this.next(3)', function() {
+        assert(avl.next(3) === 4);
     });
     test('this.has(4)', function() {
         assert(avl.has(4) === true);
@@ -41,11 +56,35 @@ suite('AVL(nums)', function() {
     test('this.count(4)', function() {
         assert(avl.count(4) === 3);
     });
+    test('this.next(4)', function() {
+        assert(avl.next(4) === 5);
+    });
+    test('this.has(7)', function() {
+        assert(avl.has(7) === false);
+    });
+    test('this.count(7)', function() {
+        assert(avl.count(7) === 0);
+    });
+    test('this.next(7)', function() {
+        assert(avl.next(7) === 8);
+    });
+    test('this.has(8)', function() {
+        assert(avl.has(8) === true);
+    });
+    test('this.count(8)', function() {
+        assert(avl.count(8) === 1);
+    });
+    test('this.next(8)', function() {
+        assert(avl.next(8) === 9);
+    });
     test('this.has(9)', function() {
         assert(avl.has(9) === true);
     });
     test('this.count(9)', function() {
         assert(avl.count(9) === 3);
+    });
+    test('this.next(9)', function() {
+        assert(avl.next(9) === undefined);
     });
     test('this.inorder()', function() {
         const nums = [1,2,3,4,4,4,5,6,8,9,9,9];
@@ -2297,6 +2336,9 @@ suite('AVL("string")', function() {
     test('this.count("a")', function() {
         assert(avl.count('a') === 0);
     });
+    test('this.next("a")', function() {
+        assert(avl.next('a') === undefined);
+    });
     test('this.inorder()', function() {
         const arr = avl.inorder();
         assert(isArray(arr) && arr.length === 0);
@@ -2336,11 +2378,17 @@ suite('AVL("string")', function() {
     test('this.count("a")', function() {
         assert(avl.count('a') === 1);
     });
+    test('this.next("a")', function() {
+        assert(avl.next('a') === undefined);
+    });
     test('this.has("b")', function() {
         assert(avl.has('b') === false);
     });
     test('this.count("b")', function() {
         assert(avl.count('b') === 0);
+    });
+    test('this.next("b")', function() {
+        assert(avl.next('b') === undefined);
     });
     test('this.inorder()', function() {
         const strs = [ 'a' ];
