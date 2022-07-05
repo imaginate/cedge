@@ -477,15 +477,10 @@ var AVL = (function() {
             if (!node) {
                 node = parent;
             }
-            const compared = this.compare(val, node.val);
-            if (compared >= 0) {
-                node = compared === 0
-                    ? node.right
-                        ? findNextNode(node)
-                        : findNextNodeUp(node)
-                    : node.left
-                        ? findPrevNode(node)
-                        : findPrevNodeUp(node);
+            if (this.compare(val, node.val) >= 0) {
+                node = node.right
+                    ? findNextNode(node)
+                    : findNextNodeUp(node);
             }
             return node
                 ? node.val
@@ -562,15 +557,10 @@ var AVL = (function() {
             if (!node) {
                 node = parent;
             }
-            const compared = this.compare(val, node.val);
-            if (compared <= 0) {
-                node = compared === 0
-                    ? node.left
-                        ? findPrevNode(node)
-                        : findPrevNodeUp(node)
-                    : node.right
-                        ? findNextNode(node)
-                        : findNextNodeUp(node);
+            if (this.compare(val, node.val) <= 0) {
+                node = node.left
+                    ? findPrevNode(node)
+                    : findPrevNodeUp(node);
             }
             return node
                 ? node.val
