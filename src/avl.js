@@ -460,7 +460,7 @@ var AVL = (function() {
          */
         next(val) {
             if (!this._length) {
-                return 0;
+                return undefined;
             }
             let parent = null;
             let node = this._root;
@@ -471,19 +471,22 @@ var AVL = (function() {
                 }
                 parent = node;
                 node = compared < 0
-                    ? node.right
-                    : node.left;
+                    ? node.left
+                    : node.right;
             }
             if (!node) {
                 node = parent;
             }
-            node = this.compare(val, node.val) <= 0
-                ? node.right
-                    ? findNextNode(node)
-                    : findNextNodeUp(node)
-                : node.left
-                    ? findPrevNode(node)
-                    : findPrevNodeUp(node);
+            const compared = this.compare(val, node.val);
+            if (compared >= 0) {
+                node = compared === 0
+                    ? node.right
+                        ? findNextNode(node)
+                        : findNextNodeUp(node)
+                    : node.left
+                        ? findPrevNode(node)
+                        : findPrevNodeUp(node);
+            }
             return node
                 ? node.val
                 : undefined;
