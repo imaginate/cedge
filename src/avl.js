@@ -533,6 +533,50 @@ var AVL = (function() {
             }
             return vals;
         }
+
+        /**
+         * This method returns the value of the previous (i.e. lesser)
+         * existing value within the tree.
+         *
+         * @public
+         * @export
+         * @param {*} val
+         * @return {*}
+         */
+        previous(val) {
+            if (!this._length) {
+                return undefined;
+            }
+            let parent = null;
+            let node = this._root;
+            while (node) {
+                const compared = this.compare(val, node.val);
+                if (compared === 0) {
+                    break;
+                }
+                parent = node;
+                node = compared < 0
+                    ? node.left
+                    : node.right;
+            }
+            if (!node) {
+                node = parent;
+            }
+            const compared = this.compare(val, node.val);
+            if (compared <= 0) {
+                node = compared === 0
+                    ? node.left
+                        ? findPrevNode(node)
+                        : findPrevNodeUp(node)
+                    : node.right
+                        ? findNextNode(node)
+                        : findNextNodeUp(node);
+            }
+            return node
+                ? node.val
+                : undefined;
+        }
+
     }
 
     /**
