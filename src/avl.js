@@ -457,6 +457,8 @@ var AVL = (function() {
          * @export
          * @param {*} val
          * @return {*}
+         *     Returns the next value in the tree or `undefined` if no such
+         *     value exists.
          */
         next(val) {
             if (!this._length) {
@@ -537,6 +539,8 @@ var AVL = (function() {
          * @export
          * @param {*} val
          * @return {*}
+         *     Returns the previous value in the tree or `undefined` if no
+         *     such value exists.
          */
         previous(val) {
             if (!this._length) {
