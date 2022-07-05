@@ -418,17 +418,6 @@ var AVL = (function() {
         }
 
         /**
-         * This method gets the current length for the *AVL* instance.
-         *
-         * @public
-         * @export
-         * @return {number}
-         */
-        length() {
-            return this._length;
-        }
-
-        /**
          * This method returns an inorder-sorted array of the tree's values.
          *
          * @public
@@ -447,6 +436,57 @@ var AVL = (function() {
                 saveInorder(this._root, vals);
             }
             return vals;
+        }
+
+        /**
+         * This method gets the current length for the *AVL* instance.
+         *
+         * @public
+         * @export
+         * @return {number}
+         */
+        length() {
+            return this._length;
+        }
+
+        /**
+         * This method returns the value of the next (i.e. greater) existing
+         * value within the tree.
+         *
+         * @public
+         * @export
+         * @param {*} val
+         * @return {*}
+         */
+        next(val) {
+            if (!this._length) {
+                return 0;
+            }
+            let parent = null;
+            let node = this._root;
+            while (node) {
+                const compared = this.compare(val, node.val);
+                if (compared === 0) {
+                    break;
+                }
+                parent = node;
+                node = compared < 0
+                    ? node.right
+                    : node.left;
+            }
+            if (!node) {
+                node = parent;
+            }
+            node = this.compare(val, node.val) <= 0
+                ? node.right
+                    ? findNextNode(node)
+                    : findNextNodeUp(node)
+                : node.left
+                    ? findPrevNode(node)
+                    : findPrevNodeUp(node);
+            return node
+                ? node.val
+                : undefined;
         }
 
         /**
@@ -544,6 +584,17 @@ var AVL = (function() {
     /**
      * @private
      * @param {!AVLNode} node
+     * @return {?AVLNode}
+     */
+    function findNextNodeUp(node) {
+        return !node.parent || node.parent.left === node
+            ? node.parent
+            : findNextNodeUp(node.parent);
+    }
+
+    /**
+     * @private
+     * @param {!AVLNode} node
      * @return {!AVLNode}
      */
     function findPrevNode(node) {
@@ -552,6 +603,17 @@ var AVL = (function() {
             node = node.right;
         }
         return node;
+    }
+
+    /**
+     * @private
+     * @param {!AVLNode} node
+     * @return {?AVLNode}
+     */
+    function findPrevNodeUp(node) {
+        return !node.parent || node.parent.right === node
+            ? node.parent
+            : findPrevNodeUp(node.parent);
     }
 
     /**
