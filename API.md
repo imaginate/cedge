@@ -10,10 +10,12 @@ The API for each Cedge class.
   - [AVL.prototype.delete](#user-content-avl-prototype-delete)
   - [AVL.prototype.empty](#user-content-avl-prototype-empty)
   - [AVL.prototype.has](#user-content-avl-prototype-has)
-  - [AVL.prototype.length](#user-content-avl-prototype-length)
   - [AVL.prototype.inorder](#user-content-avl-prototype-inorder)
+  - [AVL.prototype.length](#user-content-avl-prototype-length)
+  - [AVL.prototype.next](#user-content-avl-prototype-next)
   - [AVL.prototype.postorder](#user-content-avl-prototype-postorder)
   - [AVL.prototype.preorder](#user-content-avl-prototype-preorder)
+  - [AVL.prototype.previous](#user-content-avl-prototype-previous)
 - Deque
   - [Deque.prototype.constructor](#user-content-deque-prototype-constructor)
   - [Deque.prototype.back](#user-content-deque-prototype-back)
@@ -148,15 +150,6 @@ If the tree is empty `true` is returned. Otherwise `false` is returned.
 
 ` boolean `
 
-<a name="avl-prototype-length"></a>
-## AVL.prototype.length
-
-This method gets the current length for the *AVL* instance.
-
-#### Returns
-
-` number `
-
 <a name="avl-prototype-inorder"></a>
 ## AVL.prototype.inorder
 
@@ -172,6 +165,30 @@ This method returns an inorder-sorted array of the tree's values.
 #### Returns
 
 ` !Array<*> `
+
+<a name="avl-prototype-length"></a>
+## AVL.prototype.length
+
+This method gets the current length for the *AVL* instance.
+
+#### Returns
+
+` number `
+
+<a name="avl-prototype-next"></a>
+## AVL.prototype.next
+
+This method returns the value of the next (i.e. greater) existing value within
+the tree.
+
+#### Parameters
+
+- ***val*** ` * `
+
+#### Returns
+
+` * `<br/>
+Returns the next value in the tree or `undefined` if no such value exists.
 
 <a name="avl-prototype-postorder"></a>
 ## AVL.prototype.postorder
@@ -204,6 +221,21 @@ This method returns a preorder-sorted array of the tree's values.
 #### Returns
 
 ` !Array<*> `
+
+<a name="avl-prototype-previous"></a>
+## AVL.prototype.previous
+
+This method returns the value of the previous (i.e. lesser) existing value
+within the tree.
+
+#### Parameters
+
+- ***val*** ` * `
+
+#### Returns
+
+` * `<br/>
+Returns the previous value in the tree or `undefined` if no such value exists.
 
 <a name="deque-prototype-constructor"></a>
 ## Deque.prototype.constructor
