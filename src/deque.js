@@ -1,7 +1,7 @@
 /**
  * Cedge
  * @file The *Deque* class.
- * @version 1.0.0
+ * @version 1.1.0
  * @see [Cedge](https://github.com/imaginate/cedge)
  *
  * @author Adam Smith <imagineadamsmith@gmail.com> (https://github.com/imaginate)
