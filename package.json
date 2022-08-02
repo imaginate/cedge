@@ -10,14 +10,14 @@
     "url": "https://github.com/imaginate/cedge.git"
   },
   "scripts": {
-    "test": "./node_modules/nyc/bin/nyc.js --reporter=text ./node_modules/mocha/bin/mocha -u tdd"
+    "test": "./node_modules/.bin/nyc --reporter=text ./node_modules/.bin/mocha -u tdd"
   },
   "bugs": {
     "url": "https://github.com/imaginate/cedge/issues"
   },
   "homepage": "https://github.com/imaginate/cedge",
   "devDependencies": {
-    "mocha": "7.x",
+    "mocha": "10.x",
     "nyc": "15.x"
   }
 }
